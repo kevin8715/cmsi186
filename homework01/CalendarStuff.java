@@ -280,5 +280,23 @@ public class CalendarStuff {
         monthLast = month1;
         yearLast = year1;
      }
+     if ( monthLast -1 == monthFirst && yearLast == yearFirst + 1 || yearFirst == yearLast ) {
+      dayCount += daysInMonth( monthFirst, yearFirst ) - dayFirst;
+      dayCount += dayLast;
+      return dayCount;
+     }
+     dayCount += daysInMonth( monthFirst, yearFirst ) - dayFirst;
+     dayCount += dayLast;
+     long differenceMonths = ( ( maxMonth- monthFirst ) + ( maxMonth * differenceYears ) + ( monthLast ) - 1 );
+     for ( long count = 0; count < differenceMonths; count++ ) {
+      dayCount += daysInMonth( monthFirst, yearFirst );
+      if ( monthFirst > maxMonth - 1) {
+        monthFirst = 0;
+        yearFirst++;
+      } 
+     } 
+    System.out.println(dayCount); 
+     return dayCount;
+  }
     }
 }
