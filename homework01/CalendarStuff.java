@@ -3,8 +3,8 @@
  *  Purpose       :  Provides a class with supporting methods for CountTheDays.java program
  *  Author        :  B.J. Johnson (prototype)
  *  Date          :  2017-01-02 (prototype)
- *  Author        :  <your name here>
- *  Date          :  <date of writing here>
+ *  Author        :  Kevin Solis Sosa
+ *  Date          :  2018-01-23
  *  Description   :  This file provides the supporting methods for the CountTheDays program which will
  *                   calculate the number of days between two dates.  It shows the use of modularization
  *                   when writing Java code, and how the Java compiler can "figure things out" on its
@@ -23,21 +23,25 @@
  *  @version 1.0.1  2017-12-25  B.J. Johnson  Updated for Spring 2018
  */
 public class CalendarStuff {
-public static void main( String[] args ) {
+
+  /**
+   * Maxes
+   */
+  private static final int maxMonth = 12;
+  private static final int yearLength = 4;
 
   /**
    * A listing of the days of the week, assigning numbers; Note that the week arbitrarily starts on Sunday
    */
    private static final int SUNDAY    = 0;
    private static final int MONDAY    = SUNDAY    + 1;
-   private static final int Tuesday    = SUNDAY    + 2;
-   private static final int Wednesday    = SUNDAY    + 3;
-   private static final int Thursday    = SUNDAY    + 4;
-   private static final int Friday    = SUNDAY    + 5;
-   private static final int Saturday    = SUNDAY    + 6;
+   private static final int TUESDAY    = SUNDAY    + 2;
+   private static final int WEDNESDAY    = SUNDAY    + 3;
+   private static final int THURSDAY    = SUNDAY    + 4;
+   private static final int FRIDAY    = SUNDAY    + 5;
+   private static final int SATURDAY    = SUNDAY    + 6;
 
-  // you can finish the rest on your own
-  private static final int FEBRUARY   = JANUARY   + 1;
+  
   /**
    * A listing of the months of the year, assigning numbers; I suppose these could be ENUMs instead, but whatever
    */
@@ -60,13 +64,18 @@ public static void main( String[] args ) {
    *  NOTE: this excludes leap years, so those will be handled as special cases
    *  NOTE: this is optional, but suggested
    */
-   private static int[]    days        = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+   private static int[] daysForEachMonth = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+   public long year;
+   public int month;
+   public int day;
 
   /**
    * The constructor for the class
    */
-   public CalendarStuffEmpty() {
-      System.out.println( "Constructor called..." );  // replace this with the actual code
+   public CalendarStuff() {
+      year = 0;
+      month = 0;
+      day = 0;
    }
 
   /**
@@ -76,11 +85,13 @@ public static void main( String[] args ) {
    * @return         boolean which is true if the parameter is a leap year
    */
    public static boolean isLeapYear( long year ) {
-    if (year%4 = 0 && year%100 = 0){
+    //Only once case that can result in a leap year
+    if (year%400 == 0 || year%4 == 0 && year%100 != 0){
         return true;
       }
-  else
-      return false;  
+    else
+      return false; 
+ 
    }
 
   /**
@@ -92,10 +103,10 @@ public static void main( String[] args ) {
    *         be decremented to make the appropriate index value
    */
    public static long daysInMonth( long month, long year ) {
-      if(isLeapYear(year) && (month - 1) ===2)
+      if(isLeapYear(year) && (month - 1) ==1)
         return 29;
       else
-        return days(month);
+        return (long)daysForEachMonth[(int)month - 1];
    }
 
   /**
@@ -109,8 +120,10 @@ public static void main( String[] args ) {
    * @return          boolean which is true if the two dates are exactly the same
    */
    public static boolean dateEquals( long month1, long day1, long year1, long month2, long day2, long year2 ) {
-      if(month1.equals(month2) && day1.equals(day2) && year1.equals(year2))
+      if(month1 == month2 && day1 == day2 && year1 == year2)
       return true;
+    else
+      return false;
    }
 
   /**
@@ -126,7 +139,14 @@ public static void main( String[] args ) {
    public static int compareDate( long month1, long day1, long year1, long month2, long day2, long year2 ) {
       if(dateEquals( month1, day1, year1, month2, day2, year2 ))
       return 0; 
-    else if()
+    else if(year2>year1)
+      return -1;
+    else if(month2>month1 && year2 == year1)
+      return -1;
+    else if(day2>day1 && month1 == month2)
+      return -1;
+    else
+      return 1;
    }
 
   /**
@@ -139,8 +159,20 @@ public static void main( String[] args ) {
    *         be decremented to make the appropriate index value
    */
    public static boolean isValidDate( long month, long day, long year ) {
-      if(isLeapYear(year) && month === FEBRUARY)
-        if(day-1!== )
+    int yearLength = String.valueOf((int)year).length();
+    if(yearLength != 4)
+      return false;
+    if(isLeapYear(year) && month-1 == 1){
+      if(day == 29)
+        return true;
+      else
+        return false;
+      }
+  
+      else if(month>=1 && month<=maxMonth && day <= daysForEachMonth[(int)month-1] && day>0)
+          return true;
+       else
+        return false;
    }
 
   /**
@@ -149,10 +181,36 @@ public static void main( String[] args ) {
    * @return         String containing the string value of the month (no spaces)
    */
    public static String toMonthString( int month ) {
+    String monthString = "";
       switch( month - 1 ) {
-         default: throw new IllegalArgumentException( "Illegal month value given to 'toMonthString()'." );
-      }
-   }
+            case 0:  monthString = "January";
+                     break;
+            case 1:  monthString = "February";
+                     break;
+            case 2:  monthString = "March";
+                     break;
+            case 3:  monthString = "April";
+                     break;
+            case 4:  monthString = "May";
+                     break;
+            case 5:  monthString = "June";
+                     break;
+            case 6:  monthString = "July";
+                     break;
+            case 7:  monthString = "August";
+                     break;
+            case 8:  monthString = "September";
+                     break;
+            case 9: monthString = "October";
+                     break;
+            case 10: monthString = "November";
+                     break;
+            case 11: monthString = "December";
+                     break;
+            default: throw new IllegalArgumentException( "Illegal month value given to 'toMonthString()'." );
+        }
+        return monthString;
+    }
 
   /**
    * A method to return a string version of the day of the week name
@@ -160,9 +218,25 @@ public static void main( String[] args ) {
    * @return       String containing the string value of the day (no spaces)
    */
    public static String toDayOfWeekString( int day ) {
+    String dayString = "";
       switch( day - 1 ) {
-         default       : throw new IllegalArgumentException( "Illegal day value given to 'toDayOfWeekString()'." );
+            case 0:  dayString = "Sunday";
+                     break;
+            case 1:  dayString = "Monday";
+                     break;
+            case 2:  dayString = "Tuesday";
+                     break;
+            case 3:  dayString = "Wednesday";
+                     break;
+            case 4:  dayString = "Thursday";
+                     break;
+            case 5:  dayString = "Friday";
+                     break;
+            case 6:  dayString = "Saturday";
+                     break;
+            default: throw new IllegalArgumentException( "Illegal day value given to 'toDayOfWeekString()'." );
       }
+      return dayString;
    }
 
   /**
@@ -175,9 +249,36 @@ public static void main( String[] args ) {
    * @param    year2  long   containing four-digit year
    * @return          long   count of total number of days
    */
-   public static long daysBetween( long month1, long day1, long year1, long month2, long day2, long year2 ) {
-      long dayCount = 0;
+ public static long daysBetween( long month1, long day1, long year1, long month2, long day2, long year2 ) {
+     long dayCount = 0;
+     long differenceYears = Math.abs( year2 - year1-1);
+     long dayFirst; 
+     long monthFirst; 
+     long yearFirst; 
+     long dayLast;
+     long monthLast;
+     long yearLast;
+     if (dateEquals( month1, day1, year1, month2, day2, year2 ) ) {
       return dayCount;
-   }
-
+     } 
+     if (month1 == month2 && year1 == year2 ) {
+      return dayCount+(Math.abs( day1 - day2));
+     } 
+     if (compareDate( month1, day1, year1, month2, day2, year2 ) == -1  ) {
+        dayFirst = day1; 
+        monthFirst = month1; 
+        yearFirst = year1; 
+        dayLast = day2;
+        monthLast = month2;
+        yearLast = year2;
+     } 
+     else {
+        dayFirst = day2;
+        monthFirst = month2; 
+        yearFirst = year2; 
+        dayLast = day1;
+        monthLast = month1;
+        yearLast = year1;
+     }
+    }
 }
