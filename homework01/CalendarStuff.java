@@ -283,20 +283,28 @@ public class CalendarStuff {
      if ( monthLast -1 == monthFirst && yearLast == yearFirst + 1 || yearFirst == yearLast ) {
       dayCount += daysInMonth( monthFirst, yearFirst ) - dayFirst;
       dayCount += dayLast;
+      System.out.println(dayCount);
       return dayCount;
      }
+     //adds days in month until it reaches December
      dayCount += daysInMonth( monthFirst, yearFirst ) - dayFirst;
-     dayCount += dayLast;
-     long differenceMonths = ( ( maxMonth- monthFirst ) + ( maxMonth * differenceYears ) + ( monthLast ) - 1 );
-     for ( long count = 0; count < differenceMonths; count++ ) {
-      dayCount += daysInMonth( monthFirst, yearFirst );
-      if ( monthFirst > maxMonth - 1) {
-        monthFirst = 0;
-        yearFirst++;
-      } 
-     } 
+      for ( long i = monthFirst; i < maxMonth; i++ ) {                                                                                                          
+       dayCount += daysForEachMonth[(int)i];
+       monthFirst++;
+     }
+     System.out.println(dayCount); //check
+     dayCount += Math.abs( yearLast - yearFirst - 1) * 365; 
+     for ( long i = 0; i < monthLast - 1; i++ ) {                                                                                      
+       dayCount += daysForEachMonth[(int)i];
+     }
+     dayCount += dayLast; 
+     System.out.println(dayCount); //check
+     for ( long i = yearFirst; i < ( yearLast + 1 ); i++ ) {                                                                       
+        if ( isLeapYear( i ) ) {
+          dayCount += 1;
+        }
+     }
     System.out.println(dayCount); 
      return dayCount;
   }
-    }
 }
