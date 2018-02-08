@@ -1,8 +1,8 @@
 /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  *  File name     :  StringStuff.java
  *  Purpose       :  A file full of stuff to do with the Java String class
- *  Author        :  B.J. Johnson
- *  Date          :  2017-01-19
+ *  Author        :  Kevin Solis Sosa
+ *  Date          :  2017-02-06
  *  Description   :  This file presents a bunch of String-style helper methods.  Although pretty much
  *                   any and every thing you'd want to do with Strings is already made for you in the
  *                   Jave String class, this exercise gives you a chance to do it yourself [DIY] for some
@@ -22,7 +22,15 @@
 import java.util.Set;
 import java.util.LinkedHashSet;
 
-public class StringStuffEmpty {
+public class StringStuff {
+
+
+public StringStuff() {
+   s = "";
+}
+
+public static String[] letters = new String[]{" ","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p", "q", "r","s","t","u","v","w","x","y","z"};
+public String s;
 
   /**
    * Method to determine if a string contains one of the vowels: A, E, I, O, U, and sometimes Y.
@@ -32,7 +40,22 @@ public class StringStuffEmpty {
    * @param s String containing the data to be checked for &quot;vowel-ness&quot;
    * @return  boolean which is true if there is a vowel, or false otherwise
    */
+  public static int findIndex(String[] p, String s){
+   for(int i = 0; i < p.length; i++){
+      if(p[i].equals(s)){
+         return i;
+      }
+   }
+   return -1;
+  }
    public static boolean containsVowel( String s ) {
+      int p;
+      String s1 = s.toLowerCase();
+      for(int i = 0;  i<s.length(); i++){
+         p = findIndex(letters, s1.substring(i, i+1));
+         if(p == 1 || p == 5 || p == 9 || p == 15 || p == 21 || p ==25)
+            return true;
+      }
       return false;
    }
 
@@ -44,8 +67,13 @@ public class StringStuffEmpty {
    * @param s String containing the data to be checked for &quot;palindrome-ness&quot;
    * @return  boolean which is true if this a palindrome, or false otherwise
    */
+
    public static boolean isPalindrome( String s ) {
-      return true;
+      String s1 = reverse(s);
+      if(s.equals(s1))
+         return true;
+
+      return false;
    }
 
   /**
@@ -57,7 +85,14 @@ public class StringStuffEmpty {
    * @return  String containing the &quot;even&quot; letters from the input
    */
    public static String evensOnly( String s ) {
-      return new String( "HJHJHJ" );
+      String storage = "";
+      int placeholder;
+      String s1 = s.toLowerCase();
+      for(int i = 0; i < s.length(); i++){
+         if(findIndex(letters, s1.substring(i, i+1))%2==0)
+            storage +=s.substring(i,i+1);
+      }
+      return storage;
    }
 
   /**
@@ -69,7 +104,14 @@ public class StringStuffEmpty {
    * @return  String containing the &quot;odd&quot; letters from the input
    */
    public static String oddsOnly( String s ) {
-      return new String( "IKIKIK" );
+      String storage = "";
+      int placeholder;
+      String s1 = s.toLowerCase();
+      for(int i = 0; i < s.length(); i++){
+         if(findIndex(letters, s1.substring(i, i+1))%2==1)
+            storage +=s.substring(i,i+1);
+      }
+      return storage;   
    }
 
   /**
@@ -80,7 +122,16 @@ public class StringStuffEmpty {
    * @return  String containing the &quot;even&quot; letters from the input without duplicates
    */
    public static String evensOnlyNoDupes( String s ) {
-      return new String( "HJ" );
+      String storage = "";
+      String currentSubString;
+      String s1 = s.toLowerCase();
+      for(int i = 0; i < s.length(); i++){
+         currentSubString = s.substring(i,i+1);
+         if(findIndex(letters, s1.substring(i, i+1))%2==0 && (storage.indexOf(currentSubString)== -1))
+            storage +=s.substring(i,i+1);
+
+      }
+      return storage;
    }
 
   /**
@@ -91,7 +142,16 @@ public class StringStuffEmpty {
    * @return  String containing the &quot;odd&quot; letters from the input without duplicates
    */
    public static String oddsOnlyNoDupes( String s ) {
-      return new String( "IK" );
+      String storage = "";
+      String currentSubString;
+      String s1 = s.toLowerCase();
+      for(int i = 0; i < s.length(); i++){
+         currentSubString = s.substring(i,i+1);
+         if(findIndex(letters, s1.substring(i, i+1))%2==1 && (storage.indexOf(currentSubString)== -1))
+            storage +=s.substring(i,i+1);
+
+      }
+      return storage;
    }
 
   /**
@@ -101,7 +161,11 @@ public class StringStuffEmpty {
    * @return  String containing the reverse of the input string
    */
    public static String reverse( String s ) {
-      return new String( "kculc eht tahw" );
+      String reverse = "";
+      for(int i = s.length()-1; i >= 0; i--){
+         reverse+=s.substring(i, i+1);
+      }
+      return reverse;
    }
 
   /**
@@ -117,6 +181,8 @@ public class StringStuffEmpty {
       String pal3 = new String( "aba" );
       String pal4 = new String( "amanaplanacanalpanama" );
       String pal5 = new String( "abba" );
+      String numbers = new String ("7142308123");
+      String singleLetterUsage = new String("BBBBBBBBBBBBBBBBBBB");
       System.out.println( containsVowel( blah ) );
       System.out.println( containsVowel( woof ) );
       System.out.println( isPalindrome( pal1 ) );
@@ -124,6 +190,8 @@ public class StringStuffEmpty {
       System.out.println( isPalindrome( pal3 ) );
       System.out.println( isPalindrome( pal4 ) );
       System.out.println( isPalindrome( pal5 ) );
+      System.out.println( isPalindrome( singleLetterUsage) );
+      System.out.println( isPalindrome( numbers ) );
       System.out.println( "evensOnly()        returns: " + evensOnly( "REHEARSALSZ" ) );
       System.out.println( "evensOnly()        returns: " + evensOnly( "REhearSALsz" ) );
       System.out.println( "evensOnlyNoDupes() returns: " + evensOnlyNoDupes( "REhearSALsz" ) );
