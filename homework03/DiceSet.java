@@ -1,8 +1,8 @@
 /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  *  File name     :  DiceSet.java
  *  Purpose       :  Provides a class describing a set of dice
- *  Author        :  B.J. Johnson
- *  Date          :  2017-02-09
+ *  Author        :  Kevin Solis
+ *  Date          :  2018-02-20
  *  Description   :  This class provides everything needed (pretty much) to describe a set of dice.  The
  *                   idea here is to have an implementing class that uses the Die.java class.  Includes
  *                   the following:
@@ -45,10 +45,13 @@ public class DiceSet{
    * @note   parameters are checked for validity; invalid values throw "IllegalArgumentException"
    */
    public DiceSet( int count, int sides ) {
+    if(count < 1){
+      throw new IllegalArgumentException();
+    }
       ds = new Die[ count ];
-      for(Die d : ds){
-        ds.sides= this.sides;
-      }
+    for (int i = 0; i < count; i ++){
+      ds[i] = new Die(sides);
+    }
 
    }
 
@@ -58,7 +61,7 @@ public class DiceSet{
    public int sum() {
     int sum = 0;
     for(Die d: ds){
-      sum += ds.getValue();
+      sum += d.getValue();
     }
 
       return sum;
@@ -71,7 +74,7 @@ public class DiceSet{
    */
    public void roll() {
     for(Die d : ds){
-      ds.pips= ds.roll();
+      d.roll();
     }
    }
 
@@ -98,37 +101,64 @@ public class DiceSet{
    * @return Public Instance method that returns a String representation of the DiceSet instance
    */
    public String toString() {
-      String result = "";
-      for(Die d : ds){
-        result += ds.toString();
-      }
-      return result;
+    String r = "";
+    for(int i = 0; i < ds.length; i++){
+      r+= (i + " " + getIndividual(i));
+      i++;
+    }
+    return r; 
    }
 
   /**
    * @return Class-wide version of the preceding instance method
    */
    public static String toString( DiceSet ds ) {
-      return ds.toString();
+    ds.toString();
    }
 
   /**
    * @return  tru iff this set is identical to the set passed as an argument
    */
    public boolean isIdentical( DiceSet ds ) {
-    if(this.ds.lenght() != ds.length()){
-      return false
+    if(this.ds.length != ds.length){
+      return false;
     }
-    for(int i = 0; i < ds.length(); i++){
-
+    for(int i = 0; i < ds.length; i++){
+      if(this.getIndividual(i) != getIndividual(i)){
+        return false;
+      }
     }
-
+return true;
    }
   /**
    * A little test main to check things out
    */
    public static void main( String[] args ) {
-      // You do this part!
+      System.out.println( "Hello world from the DieSet class..." );
+      DiceSet ds = null;
+      int count = 0;
+      int test;
+      int test2; 
+      while (count < 10){
+        test = (int)Math.floor(Math.random()*100 + 1);
+        test2 = (int)Math.floor(Math.random()*20 + 1);
+        try{ds = new DiceSet(test, test2);}
+        catch ( IllegalArgumentException iae ) { System.out.println( "Given die side values is too small or  # of dies is too small" ); }
+        System.out.println("\nTesting for proper return values for methods with sides being:" + test + " and # of die being" + test2 );
+        for(int i = 0; i < 3; i++){
+          ds.roll();
+          ds.toString();  
+        }
+        System.out.println("sum of rolls is: " + ds.roll());
+        System.out.println("output for static toString method:" + toString(ds));
+        System.out.println("testing rollIndividual and getIndividual: ");
+        for(int i = 0; i<ds.length; i++)
+          System.out.println(i + " roll:" + ds.rollIndividual(i) );
+        count++;
+      }
+      try { ds = new DiceSet(0, 2);}
+      catch ( IllegalArgumentException iae ) { System.out.println( "Given die side values is too small or  # of dies is too small" ); }
+      System.out.println(ds.toString());
    }
 
 }
