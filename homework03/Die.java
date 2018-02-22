@@ -1,8 +1,8 @@
 /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  *  File name     :  Die.java
  *  Purpose       :  Provides a class describing a single die that can be rolled
- *  @author       :  B.J. Johnson
- *  Date          :  2017-02-06
+ *  @author       :  Kevin Solis 
+ *  Date          :  2018-02-20
  *  Description   :  This class provides the data fields and methods to describe a single game die.  A
  *                   die can have "N" sides.  Sides are randomly assigned sequential pip values, from 1
  *                   to N, with no repeating numbers.  A "normal" die would thus has six sides, with the
@@ -50,9 +50,10 @@ public class Die{
    * Note: parameter must be checked for validity; invalid value must throw "IllegalArgumentException"
    */
    public Die( int nSides ) {
-   // catch (nSides < MINIMUM_SIDES){
-     //throw ("# of sides is too small")
-      //}
+     if(nSides < MINIMUM_SIDES){
+      throw new IllegalArgumentException();
+     }
+   
       sides = nSides;
    }
 
@@ -61,7 +62,7 @@ public class Die{
    * @return  integer value of the result of the roll, randomly selected
    */
    public int roll() {
-      pips = sides * (int)Math.floor(Math.random()+1);
+      pips = (int)Math.floor(Math.random()*sides + 1);
       return pips;
    }
 
@@ -82,7 +83,10 @@ public class Die{
    * @throws      IllegalArgumentException
    */
    public void setSides( int sides ) {
-    sides = this.sides;
+    if(sides < MINIMUM_SIDES){
+      throw new IllegalArgumentException();
+     }
+    this.sides = sides;
    }
 
   /**
@@ -90,7 +94,7 @@ public class Die{
    * @return String representation of this Die
    */
    public String toString() {
-      return sides + " " + pips;
+      return "# of sides " + sides + ", actual roll value: " + pips;
    }
 
   /**
@@ -98,7 +102,7 @@ public class Die{
    * @return String representation of this Die
    */
    public static String toString( Die d ) {
-      return d.sides + " " + d.pips;
+      return d.toString();
    }
 
   /**
@@ -106,7 +110,34 @@ public class Die{
    */
    public static void main( String[] args ) {
       System.out.println( "Hello world from the Die class..." );
-      Die d = new Die(7);
+      Die d = null;
+      int count = 0;
+      int test;
+      int test2; 
+      while (count < 10){
+        test = (int)Math.floor(Math.random()*100 + 1);
+        test2 = (int)Math.floor(Math.random()*100 + 1);
+        try{d = new Die(test);}
+        catch ( IllegalArgumentException iae ) { System.out.println( "Given die side values is too small" ); }
+        System.out.println("\nTesting for proper return values for roll method with sides being:" + test);
+        for(int i = 0; i < 8; i++){
+          System.out.println(i + " roll:" + d.roll() );
+        }
+        System.out.println("output for toString method:" + d.toString());
+        System.out.println("output for static toString method:" + toString(d));
+        try{d.setSides(test2);}
+        catch ( IllegalArgumentException iae ) { System.out.println( "Given die side values is too small" ); }
+        System.out.println("\nTesting for proper return values for roll method with sides being:" + test2);
+        for(int i = 0; i < 3; i++){
+          System.out.println(i + "roll:" + d.roll() );
+        }
+        System.out.println("output for toString method:" + d.toString());
+        System.out.println("output for static toString method:" + toString(d));
+
+        count++;
+      }
+      try { d = new Die(1);}
+      catch ( IllegalArgumentException iae ) { System.out.println( "Given die side values is too small" ); }
       System.out.println(d.toString());
    }
 
