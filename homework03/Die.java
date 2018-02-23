@@ -123,22 +123,21 @@ public class Die{
         for(int i = 0; i < 8; i++){
           System.out.println(i + " roll:" + d.roll() );
         }
-        System.out.println("output for toString method:" + d.toString());
-        System.out.println("output for static toString method:" + toString(d));
+        System.out.println("Output for toString method:" + d.toString());
+        System.out.println("Output for static toString method:" + toString(d));
         try{d.setSides(test2);}
         catch ( IllegalArgumentException iae ) { System.out.println( "Given die side values is too small" ); }
         System.out.println("\nTesting for proper return values for roll method with sides being:" + test2);
         for(int i = 0; i < 3; i++){
-          System.out.println(i + "roll:" + d.roll() );
+          System.out.println("roll "+ i + "; value: " + d.roll() );
         }
-        System.out.println("output for toString method:" + d.toString());
-        System.out.println("output for static toString method:" + toString(d));
+        System.out.println("Output for toString method:" + d.toString());
+        System.out.println("Output for static toString method:" + toString(d));
 
         count++;
       }
       try { d = new Die(1);}
       catch ( IllegalArgumentException iae ) { System.out.println( "Given die side values is too small" ); }
-      System.out.println(d.toString());
    }
 
 }
