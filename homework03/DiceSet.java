@@ -73,8 +73,8 @@ public class DiceSet{
    *  the values of the dice in the set
    */
    public void roll() {
-    for(Die d : ds){
-      d.roll();
+    for(int i = 0; i < ds.length; i++){
+      ds[i].roll();
     }
    }
 
@@ -103,8 +103,7 @@ public class DiceSet{
    public String toString() {
     String r = "";
     for(int i = 0; i < ds.length; i++){
-      r+= (i + " " + getIndividual(i));
-      i++;
+      r+= getIndividual(i)+ " ";
     }
     return r; 
    }
@@ -113,17 +112,17 @@ public class DiceSet{
    * @return Class-wide version of the preceding instance method
    */
    public static String toString( DiceSet ds ) {
-    ds.toString();
+    return ds.toString();
    }
 
   /**
    * @return  tru iff this set is identical to the set passed as an argument
    */
    public boolean isIdentical( DiceSet ds ) {
-    if(this.ds.length != ds.length){
+    if(this.ds.length != ds.count){
       return false;
     }
-    for(int i = 0; i < ds.length; i++){
+    for(int i = 0; i < ds.count; i++){
       if(this.getIndividual(i) != getIndividual(i)){
         return false;
       }
@@ -135,30 +134,30 @@ return true;
    */
    public static void main( String[] args ) {
       System.out.println( "Hello world from the DieSet class..." );
-      DiceSet ds = null;
+      DiceSet dset = null;
       int count = 0;
-      int test;
-      int test2; 
+      int randomCount; 
+      int randomSide; 
       while (count < 10){
-        test = (int)Math.floor(Math.random()*100 + 1);
-        test2 = (int)Math.floor(Math.random()*20 + 1);
-        try{ds = new DiceSet(test, test2);}
+        randomCount = (int)Math.floor(Math.random()*5 + 1);
+        randomCount = 6;
+        randomSide = (int)Math.floor(Math.random()*100 + 1);
+        try{dset = new DiceSet(randomCount, randomSide);}
         catch ( IllegalArgumentException iae ) { System.out.println( "Given die side values is too small or  # of dies is too small" ); }
-        System.out.println("\nTesting for proper return values for methods with sides being:" + test + " and # of die being" + test2 );
+        System.out.println("\nCount value: " + randomCount + "\nSide value: " + randomSide );
         for(int i = 0; i < 3; i++){
-          ds.roll();
-          ds.toString();  
+          dset.roll();
+          System.out.println(dset.toString());  
         }
-        System.out.println("sum of rolls is: " + ds.roll());
-        System.out.println("output for static toString method:" + toString(ds));
-        System.out.println("testing rollIndividual and getIndividual: ");
-        for(int i = 0; i<ds.length; i++)
-          System.out.println(i + " roll:" + ds.rollIndividual(i) );
+        System.out.println("Sum of rolls is: " + dset.sum());
+        System.out.println("Output for static toString method:" + toString(dset));
+        for(Die d: dset.ds){
+         System.out.println(dset.rollIndividual(3));
+        }
         count++;
       }
-      try { ds = new DiceSet(0, 2);}
-      catch ( IllegalArgumentException iae ) { System.out.println( "Given die side values is too small or  # of dies is too small" ); }
-      System.out.println(ds.toString());
-   }
-
+      System.out.println("\n");
+      try { dset = new DiceSet(0, 2);}
+      catch ( IllegalArgumentException iae ) { System.out.println( "Given die side value is too small or  count of dies is too small" ); }
+  }
 }
