@@ -1,0 +1,1052 @@
+Hello world from the Die class...
+
+Testing for proper return values for roll method with sides being:73
+0 roll:35
+1 roll:53
+2 roll:47
+3 roll:3
+4 roll:67
+5 roll:33
+6 roll:44
+7 roll:12
+Output for toString method:# of sides 73, actual roll value: 12
+Output for static toString method:# of sides 73, actual roll value: 12
+
+Testing for proper return values for roll method with sides being:43
+roll 0; value: 41
+roll 1; value: 9
+roll 2; value: 33
+Output for toString method:# of sides 43, actual roll value: 33
+Output for static toString method:# of sides 43, actual roll value: 33
+
+Testing for proper return values for roll method with sides being:30
+0 roll:20
+1 roll:30
+2 roll:22
+3 roll:5
+4 roll:30
+5 roll:18
+6 roll:26
+7 roll:4
+Output for toString method:# of sides 30, actual roll value: 4
+Output for static toString method:# of sides 30, actual roll value: 4
+
+Testing for proper return values for roll method with sides being:71
+roll 0; value: 44
+roll 1; value: 40
+roll 2; value: 41
+Output for toString method:# of sides 71, actual roll value: 41
+Output for static toString method:# of sides 71, actual roll value: 41
+
+Testing for proper return values for roll method with sides being:65
+0 roll:53
+1 roll:33
+2 roll:57
+3 roll:48
+4 roll:18
+5 roll:46
+6 roll:50
+7 roll:10
+Output for toString method:# of sides 65, actual roll value: 10
+Output for static toString method:# of sides 65, actual roll value: 10
+
+Testing for proper return values for roll method with sides being:11
+roll 0; value: 2
+roll 1; value: 7
+roll 2; value: 2
+Output for toString method:# of sides 11, actual roll value: 2
+Output for static toString method:# of sides 11, actual roll value: 2
+
+Testing for proper return values for roll method with sides being:87
+0 roll:65
+1 roll:20
+2 roll:60
+3 roll:18
+4 roll:28
+5 roll:38
+6 roll:16
+7 roll:18
+Output for toString method:# of sides 87, actual roll value: 18
+Output for static toString method:# of sides 87, actual roll value: 18
+
+Testing for proper return values for roll method with sides being:92
+roll 0; value: 53
+roll 1; value: 65
+roll 2; value: 11
+Output for toString method:# of sides 92, actual roll value: 11
+Output for static toString method:# of sides 92, actual roll value: 11
+
+Testing for proper return values for roll method with sides being:66
+0 roll:37
+1 roll:18
+2 roll:50
+3 roll:18
+4 roll:62
+5 roll:44
+6 roll:47
+7 roll:52
+Output for toString method:# of sides 66, actual roll value: 52
+Output for static toString method:# of sides 66, actual roll value: 52
+
+Testing for proper return values for roll method with sides being:10
+roll 0; value: 4
+roll 1; value: 2
+roll 2; value: 8
+Output for toString method:# of sides 10, actual roll value: 8
+Output for static toString method:# of sides 10, actual roll value: 8
+
+Testing for proper return values for roll method with sides being:42
+0 roll:7
+1 roll:16
+2 roll:11
+3 roll:39
+4 roll:40
+5 roll:8
+6 roll:13
+7 roll:11
+Output for toString method:# of sides 42, actual roll value: 11
+Output for static toString method:# of sides 42, actual roll value: 11
+
+Testing for proper return values for roll method with sides being:23
+roll 0; value: 13
+roll 1; value: 15
+roll 2; value: 22
+Output for toString method:# of sides 23, actual roll value: 22
+Output for static toString method:# of sides 23, actual roll value: 22
+
+Testing for proper return values for roll method with sides being:88
+0 roll:43
+1 roll:63
+2 roll:69
+3 roll:30
+4 roll:26
+5 roll:72
+6 roll:41
+7 roll:87
+Output for toString method:# of sides 88, actual roll value: 87
+Output for static toString method:# of sides 88, actual roll value: 87
+
+Testing for proper return values for roll method with sides being:72
+roll 0; value: 68
+roll 1; value: 9
+roll 2; value: 39
+Output for toString method:# of sides 72, actual roll value: 39
+Output for static toString method:# of sides 72, actual roll value: 39
+
+Testing for proper return values for roll method with sides being:71
+0 roll:66
+1 roll:57
+2 roll:32
+3 roll:60
+4 roll:33
+5 roll:20
+6 roll:36
+7 roll:10
+Output for toString method:# of sides 71, actual roll value: 10
+Output for static toString method:# of sides 71, actual roll value: 10
+
+Testing for proper return values for roll method with sides being:62
+roll 0; value: 32
+roll 1; value: 11
+roll 2; value: 7
+Output for toString method:# of sides 62, actual roll value: 7
+Output for static toString method:# of sides 62, actual roll value: 7
+
+Testing for proper return values for roll method with sides being:66
+0 roll:3
+1 roll:42
+2 roll:15
+3 roll:36
+4 roll:4
+5 roll:20
+6 roll:43
+7 roll:23
+Output for toString method:# of sides 66, actual roll value: 23
+Output for static toString method:# of sides 66, actual roll value: 23
+
+Testing for proper return values for roll method with sides being:89
+roll 0; value: 80
+roll 1; value: 56
+roll 2; value: 45
+Output for toString method:# of sides 89, actual roll value: 45
+Output for static toString method:# of sides 89, actual roll value: 45
+
+Testing for proper return values for roll method with sides being:45
+0 roll:29
+1 roll:21
+2 roll:24
+3 roll:33
+4 roll:13
+5 roll:37
+6 roll:36
+7 roll:6
+Output for toString method:# of sides 45, actual roll value: 6
+Output for static toString method:# of sides 45, actual roll value: 6
+
+Testing for proper return values for roll method with sides being:96
+roll 0; value: 69
+roll 1; value: 54
+roll 2; value: 68
+Output for toString method:# of sides 96, actual roll value: 68
+Output for static toString method:# of sides 96, actual roll value: 68
+Given die side values is too small
+Hello world from the DieSet class...
+
+Count value: 6
+Side value: 14
+7 3 13 10 13 5 
+14 10 9 2 5 6 
+8 10 10 1 12 14 
+Sum of rolls is: 55
+Output for static toString method:8 10 10 1 12 14 
+6
+10
+11
+11
+10
+8
+
+Count value: 6
+Side value: 83
+63 55 74 53 50 75 
+17 23 37 63 33 34 
+51 82 67 25 10 30 
+Sum of rolls is: 265
+Output for static toString method:51 82 67 25 10 30 
+38
+69
+36
+2
+72
+40
+
+Count value: 6
+Side value: 96
+57 33 92 53 88 50 
+66 17 42 20 40 50 
+78 17 28 17 95 30 
+Sum of rolls is: 265
+Output for static toString method:78 17 28 17 95 30 
+27
+79
+16
+57
+5
+39
+
+Count value: 6
+Side value: 51
+47 21 33 1 38 29 
+10 36 41 2 3 1 
+23 16 49 47 45 10 
+Sum of rolls is: 190
+Output for static toString method:23 16 49 47 45 10 
+31
+43
+46
+51
+20
+5
+
+Count value: 6
+Side value: 75
+5 47 53 45 3 33 
+11 44 34 35 65 45 
+65 40 44 65 44 39 
+Sum of rolls is: 297
+Output for static toString method:65 40 44 65 44 39 
+18
+25
+64
+29
+4
+1
+
+Count value: 6
+Side value: 79
+60 19 79 25 56 44 
+38 25 62 76 30 28 
+46 11 32 42 64 18 
+Sum of rolls is: 213
+Output for static toString method:46 11 32 42 64 18 
+17
+31
+31
+53
+55
+42
+
+Count value: 6
+Side value: 90
+30 35 2 16 90 17 
+3 72 25 30 36 89 
+37 32 82 1 85 67 
+Sum of rolls is: 304
+Output for static toString method:37 32 82 1 85 67 
+22
+22
+81
+72
+50
+79
+Given die side values is too small or  # of dies is too small
+
+Count value: 6
+Side value: 1
+22 77 28 37 37 73 
+81 63 19 40 23 80 
+47 63 22 63 55 74 
+Sum of rolls is: 324
+Output for static toString method:47 63 22 63 55 74 
+36
+89
+51
+49
+4
+87
+
+Count value: 6
+Side value: 13
+3 1 10 8 1 13 
+10 8 11 4 12 12 
+2 4 1 10 5 13 
+Sum of rolls is: 35
+Output for static toString method:2 4 1 10 5 13 
+11
+8
+5
+13
+3
+1
+
+Count value: 6
+Side value: 4
+2 3 3 2 1 4 
+2 4 4 2 3 3 
+4 2 1 1 4 1 
+Sum of rolls is: 13
+Output for static toString method:4 2 1 1 4 1 
+3
+4
+4
+1
+3
+3
+
+
+Given die side value is too small or  count of dies is too small
+TESTING THE DIE CLASS: TEST CONSTRUCTOR FOR INVALID NUMBERS OF SIDES:
+   Too few sides requested to constructor....
+   Too few sides requested to constructor....
+   Too few sides requested to constructor....
+   Too few sides requested to constructor....
+TESTING THE DIE CLASS: TESTS ON 4-SIDED DIE:
+   roll() test for 4 sided die: 
+   You rolled a 2
+   You rolled a 1
+   You rolled a 4
+   You rolled a 4
+   You rolled a 1
+   Current value is: # of sides 4, actual roll value: 1
+TESTING THE DIE CLASS: TESTS ON 5-SIDED DIE:
+   roll() test for 5 sided die: 
+   You rolled a 4
+   You rolled a 4
+   You rolled a 2
+   You rolled a 3
+   You rolled a 5
+   Current value is: # of sides 5, actual roll value: 5
+TESTING THE DIE CLASS: TESTS ON 6-SIDED DIE:
+   roll() test for 6 sided die: 
+   You rolled a 5
+   You rolled a 5
+   You rolled a 4
+   You rolled a 6
+   You rolled a 3
+   Current value is: # of sides 6, actual roll value: 3
+TESTING THE DIE CLASS: TESTS ON 7-SIDED DIE:
+   roll() test for 7 sided die: 
+   You rolled a 2
+   You rolled a 3
+   You rolled a 5
+   You rolled a 1
+   You rolled a 6
+   Current value is: # of sides 7, actual roll value: 6
+TESTING THE DIE CLASS: TESTS ON 8-SIDED DIE:
+   roll() test for 8 sided die: 
+   You rolled a 3
+   You rolled a 7
+   You rolled a 8
+   You rolled a 6
+   You rolled a 3
+   Current value is: # of sides 8, actual roll value: 3
+TESTING THE DIE CLASS: TESTS ON 11-SIDED DIE USING NEW SIDE COUNT:
+   Rolling with new side count -- 
+      You rolled a 7
+      You rolled a 6
+      You rolled a 4
+      You rolled a 11
+      You rolled a 6
+TESTING THE DIE CLASS: TESTS ON 17-SIDED DIE USING NEW SIDE COUNT:
+   Rolling with new side count -- 
+      You rolled a 17
+      current value is: 17
+TESTING THE DIE CLASS: TESTS ON 111-SIDED DIE USING NEW SIDE COUNT:
+   Rolling with new side count -- 
+      You rolled a 35
+      current value is: 35
+......End of Die Class Testing.....
+
+
+TESTING THE DICESET CLASS: TEST CONSTRUCTOR FOR 3 SIX-SIDED DICE:
+  DiceSet: 3 dice, six sided - ds36:
+      initialized ds36 contents             : 0 0 0 
+      after collective roll ds36 contents   : 5 5 5 
+      after individual roll(2) ds36 contents: 5 5 5 
+      sum of dice values is: 15
+   Re-rolling all dice
+      after collective roll ds36 contents   : 5 5 3 
+      after individual roll(2) ds36 contents: 5 5 1 
+      sum of dice values is                 : 11
+   Test of getIndividual(): 
+      value of die at index 0: 5
+      value of die at index 1: 5
+      value of die at index 2: 1
+TESTING THE DICESET CLASS: TEST CONSTRUCTOR FOR 6 NINE-SIDED DICE:
+   DiceSet: 6 dice, nine sided - ds69:
+      initialized ds36 contents             : 0 0 0 0 0 0 
+      after collective roll ds69 contents   : 3 8 2 3 2 5 
+      after individual roll(2) ds69 contents: 3 8 2 3 2 5 
+      sum of dice values is                 : 23
+   Re-rolling all dice
+      after collective roll ds69 contents   : 3 5 1 9 2 5 
+      after individual roll(3) ds69 contents: 3 5 1 1 2 5 
+      sum of dice values is                 : 17
+   Test of getIndividual(): 
+      value of die at index 0: 3
+      value of die at index 1: 5
+      value of die at index 2: 1
+      value of die at index 3: 1
+      value of die at index 4: 2
+      value of die at index 5: 5
+TESTING THE DICESET CLASS: TEST CONSTRUCTOR FOR 9 SEVENTEEN-SIDED DICE:
+   DiceSet: 9 dice, 17 sided - ds917:
+      initialized ds36 contents              : 0 0 0 0 0 0 0 0 0 
+      after collective roll ds917 contents   : 5 14 13 14 9 3 13 6 10 
+      after individual roll(6) ds917 contents: 5 14 13 14 9 3 17 6 10 
+      sum of dice values is                  : 91
+   Re-rolling all dice
+      after collective roll ds917 contents   : 3 4 7 14 9 7 15 15 13 
+      after individual roll(8) ds69 contents : 3 4 7 14 9 7 15 15 7 
+      sum of dice values is                  : 81
+   Test of getIndividual(): 
+      value of die at index 0: 3
+      value of die at index 1: 4
+      value of die at index 2: 7
+      value of die at index 3: 14
+      value of die at index 4: 9
+      value of die at index 5: 7
+      value of die at index 6: 15
+      value of die at index 7: 15
+      value of die at index 8: 7
+TESTING THE DICESET CLASS: TEST 'isIdentical()' FOR 9 SEVENTEEN-SIDED DICE:
+   Test of isIndentical(): 
+      Test of ds917 against ds69   : false
+      Test of ds917 against itself : false
+TESTING THE DICESET CLASS: TEST 'isIdentical()' FOR NEW SET OF 9 SEVENTEEN-SIDED DICE:
+   DiceSet ds917 contents       : 7 3 1 9 15 1 5 7 8 
+      New DiceSet ds2_917 contents : 5 1 1 5 13 10 13 8 13 
+      Test of ds917 against ds2_917: false
+......End of DiceSet Class Testing.....
+
+
+
+   Welcome to HighRoll.
+
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 1
+You rolled 1 1 4 4 2 
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 1
+You rolled 4 1 1 1 4 
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 1
+You rolled 2 6 1 5 4 
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 2
+Please type the location number of the die you would like to roll: 
+You rolled a 1
+Your total score is 18
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 2
+Please type the location number of the die you would like to roll: 
+You rolled a 3
+The current high score is 0
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 2
+Please type the location number of the die you would like to roll: 
+You rolled a 1
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 3
+Your total score is 12
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 4
+Your high score has been saved.
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 5
+The current high score is 12
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 1
+You rolled 3 6 2 1 1 
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 1
+You rolled 4 5 3 6 1 
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 2
+Please type the location number of the die you would like to roll: 
+You rolled a 2
+The current high score is 12
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 2
+Please type the location number of the die you would like to roll: 
+You rolled a 4
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 3
+Your total score is 20
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 4
+Your high score has been saved.
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 5
+The current high score is 20
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 6
+Thanks for playing
+
+   Welcome to HighRoll.
+
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 1
+You rolled 10 3 15 16 13 14 3 8 12 15 7 
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 1
+You rolled 2 15 2 11 10 12 17 15 17 12 2 
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 1
+You rolled 5 15 13 9 6 12 6 5 10 9 7 
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 2
+Please type the location number of the die you would like to roll: 
+You rolled a 5
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 2
+Please type the location number of the die you would like to roll: 
+You rolled a 5
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 2
+Please type the location number of the die you would like to roll: 
+You rolled a 15
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 3
+Your total score is 104
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 4
+Your high score has been saved.
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 5
+The current high score is 104
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 1
+You rolled 10 10 11 16 2 10 10 3 10 15 17 
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 1
+You rolled 5 7 5 17 12 15 3 13 14 16 6 
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 2
+Please type the location number of the die you would like to roll: 
+You rolled a 7
+The current high score is 104
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 2
+Please type the location number of the die you would like to roll: 
+You rolled a 3
+Your total score is 106
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 3
+Your total score is 106
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 4
+Your high score has been saved.
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 5
+The current high score is 106
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 6
+Thanks for playing
+
+   Welcome to HighRoll.
+
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 1
+You rolled 3 4 3 1 1 2 2 1 1 3 1 2 1 3 1 3 4 4 4 1 4 2 2 1 4 4 4 2 1 
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 1
+You rolled 4 2 2 2 3 3 1 4 1 2 2 4 1 3 3 3 2 1 2 3 2 3 1 3 4 3 3 3 3 
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 1
+You rolled 1 1 3 4 1 4 4 2 1 1 3 1 3 4 3 4 4 1 4 1 4 2 4 2 1 2 1 3 3 
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 2
+Please type the location number of the die you would like to roll: 
+You rolled a 4
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 2
+Please type the location number of the die you would like to roll: 
+You rolled a 3
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 2
+Please type the location number of the die you would like to roll: 
+You rolled a 1
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 3
+Your total score is 72
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 4
+Your high score has been saved.
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 5
+The current high score is 72
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 1
+You rolled 4 3 1 2 4 1 1 2 3 3 1 1 3 1 1 3 3 1 2 1 1 4 3 2 2 3 2 2 4 
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 1
+You rolled 1 2 4 4 2 4 3 3 4 1 2 3 3 1 1 4 4 2 3 2 4 3 1 1 2 1 1 3 4 
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 2
+Please type the location number of the die you would like to roll: 
+You rolled a 1
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 2
+Please type the location number of the die you would like to roll: 
+You rolled a 4
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 3
+Your total score is 74
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 4
+Your high score has been saved.
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 5
+The current high score is 74
+
+   Welcome to a Die Simulator. Please pick one of the following options by returning an options corresponding number.
+
+1. ROLL ALL THE DICE
+2. ROLL A SINGLE DIE
+3. CALCULATE THE SCORE FOR THIS SET
+4. SAVE THIS SCORE AS HIGH SCORE
+5. DISPLAY THE HIGH SCORE
+6. ENTER 6 TO QUIT THE PROGRAM
+>>You typed: 6
+Thanks for playing
