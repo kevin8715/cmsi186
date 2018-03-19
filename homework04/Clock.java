@@ -1,7 +1,7 @@
 /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  *  File name     :  Clock.java
  *  Purpose       :  Provides a class defining methods for the ClockSolver class
- *  @author       :  Kevin Solis 
+ *  @author       :  Kevin Solis
  *  Date written  :  2017-02-28
  *  Description   :  This class provides a bunch of methods which may be useful for the ClockSolver class
  *                   for Homework 4, part 1.  Includes the following:
@@ -28,7 +28,7 @@ public class Clock {
    private static final double MAXIMUM_DEGREE_VALUE = 360.0;
    private static final double HOUR_HAND_DEGREES_PER_SECOND = 0.00833334;
    private static final double MINUTE_HAND_DEGREES_PER_SECOND = 0.1;
-
+   private static final int    SECONDS_IN_TWELVE_HOURS = 43200;
    private static double timeSlice;
    private static double inputedTimeSlice;
    private static double minuteHandAngle = 0;
@@ -110,9 +110,9 @@ public class Clock {
     }
     else if ( arg < 0 || arg > 3.0 ) {
       throw new IllegalArgumentException();
-    } 
+    }
       return arg;
-  } 
+  }
 
   /**
    *  Method to calculate and return the current position of the hour hand
@@ -213,7 +213,7 @@ public class Clock {
       try { clock.validateAngleArg("XYZ"); }
       catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for XYZ degrees"); }
       System.out.println( "\n" );
-      
+
       System.out.println("Tests for validateTimeSliceArg()" );
       //extremes
       System.out.println("0 seconds should be -1: " + clock.validateTimeSliceArg( "0" ));
@@ -250,4 +250,4 @@ public class Clock {
       try { clock.validateEpsilonArg("1712893172B3"); }
       catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for an epsilon of 1712893172B3"); }
     }
-  } 
+  }
