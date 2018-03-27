@@ -217,7 +217,7 @@ public class Timer {
 
       System.out.println( "  Creating a new Time: " );
 
-      Time Time = new Time();
+      Timer Time = new Timer();
 
       System.out.println("New Time created: " + Time.toString() );
 
@@ -225,7 +225,7 @@ public class Timer {
 
       timeSlice = 11;
 
-      while ( Time.getTotalSeconds() <= SECONDS_IN_TWELVE_HOURS ) {
+      while ( Time.getTotalSeconds() <= SECONDS_PER_TWELVE_HOURS) {
 
         System.out.println(Time.toString());
         System.out.println(Time.getTotalSeconds());
