@@ -21,80 +21,54 @@ public class Ball {
   /**
    *  Class field definitions go here
    */
-   private static final double SECONDS_PER_TWELVE_HOURS = 43200;
-   private static final double DEFAULT_TIME_SLICE_IN_SECONDS = 60.0;
-   private static final double DEFAULT_EPSILON_VALUE = 0.1;
-   private static final double INVALID_ARGUMENT_VALUE = -1.0;
-   private static final double MAXIMUM_DEGREE_VALUE = 360.0;
-   private static final double HOUR_HAND_DEGREES_PER_SECOND = 0.00833334;
-   private static final double MINUTE_HAND_DEGREES_PER_SECOND = 0.1;
-
-   private static double timeSlice;
-   private static double inputedTimeSlice;
-   private static double minuteHandAngle = 0;
-   private static double hourHandAngle = 0;
-   double timeInSeconds = 0;
+   private static double userInitialXPosition;
+   private static double userInitialYPosition;
+   private static double userInitialXVelocity;
+   private static double userInitialYVelocity;
+   private static double velocity;
 
   /**
    *  Constructor
    */
    public Ball() {
-     timeSlice = inputedTimeSlice;
-     timeInSeconds = 0;
+     xPosition = userInitialXPosition;
+     yPosition = userInitialYPosition;
+     xVelocity = userInitialXVelocity;
+     yVelocity = userInitialYVelocity;
    }
 
- /**
-   *
-   *  Method to calculate the next tick from the time increment
-   *  @return double-precision value of the current Ball tick
-   *  @throws IllegalArgumentException
+   /**
+   *  Stimulating acceleration of ball
    */
-   public double tick() {
-     if ( !(timeSlice > 0) ) {
-      timeSlice = DEFAULT_TIME_SLICE_IN_SECONDS;
-     }
-     timeInSeconds += timeSlice;
-     return timeInSeconds;
+   public static Acceleration(){
+    xVelocity = xVelocity * 0.99;
+    yVelocity = yVelocity * 0.99;
    }
 
-
-/**
-   *  Method to validate the angle argument
-   *  @param   argValue  String from the main program's args[0] input
-   *  @return  double-precision value of the argument
-   *  @throws  IllegalArgumentException
+   /**
+   *  return programs to get values
    */
-   public double validateAngleArg( String argValue ) {
-      double arg = Double.parseDouble( argValue );
-      if ( arg <= 0 || arg >= MAXIMUM_DEGREE_VALUE ) {
-        throw new IllegalArgumentException();
-      }
-      return arg;
+
+   public double getxVelocity(){
+    return xVelocity;
    }
 
-  /**
-   *  Method to validate the optional time slice argument
-   *  @param  argValue  String from the main program's args[1] input
-   *  @return double-precision value of the argument or -1.0 if invalid
-   *  note: if the main program determines there IS no optional argument supplied,
-   *         I have elected to have it substitute the string "60.0" and call this
-   *         method anyhow.  That makes the main program code more uniform, but
-   *         this is a DESIGN DECISION, not a requirement!
-   *  note: remember that the time slice, if it is small will cause the simulation
-   *         to take a VERY LONG TIME to complete!
-   */
-   public double validateTimeSliceArg( String argValue ) {
-      if ( argValue == "" || argValue == null ) {
-        return DEFAULT_TIME_SLICE_IN_SECONDS;
-      }
-      double arg = Double.parseDouble( argValue );
-      if ( arg <= 0 || arg > 1800 ) {
-        return INVALID_ARGUMENT_VALUE;
-      } else {
-        inputedTimeSlice = arg;
-        return inputedTimeSlice;
-      }
+   public double getyVelocity(){
+    return yVelocity;
    }
+
+   public double returnxPosition(){
+    return xPosition;
+   }
+
+   public double returnyPosition(){
+    return yPosition;
+   }
+
+   public double actualVelocity(){
+    velocity = Math.sqrt()
+   }
+
 
  /**
   *  Method to validate the optional epsilon slice argument
@@ -114,46 +88,7 @@ public class Ball {
       return arg;
   } 
 
-  /**
-   *  Method to calculate and return the current position of the hour hand
-   *  @return double-precision value of the hour hand location
-   */
-   public double getHourHandAngle() {
-     hourHandAngle = (timeInSeconds * HOUR_HAND_DEGREES_PER_SECOND) % 360;
-     return hourHandAngle;
-   }
 
-  /**
-   *  Method to calculate and return the current position of the minute hand
-   *  @return double-precision value of the minute hand location
-   */
-   public double getMinuteHandAngle() {
-     minuteHandAngle = (timeInSeconds * MINUTE_HAND_DEGREES_PER_SECOND) % 360;
-     return minuteHandAngle;
-   }
-
-   public void handAngles(){
-    getMinuteHandAngle();
-    getHourHandAngle();
-   }
-
-  /**
-   *  Method to calculate and return the angle between the hands
-   *  @return double-precision value of the angle between the two hands
-   */
-   public double getHandAngle() {
-     handAngles();
-     return Math.abs( hourHandAngle - minuteHandAngle  );
-   }
-
-  /**
-   *  Method to fetch the total number of seconds
-   *   we can use this to tell when 12 hours have elapsed
-   *  @return double-precision value the total seconds private variable
-   */
-   public double getTotalSeconds() {
-      return timeInSeconds;
-   }
 
   /**
    *  Method to return a String representation of this Ball
