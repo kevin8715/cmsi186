@@ -96,7 +96,7 @@ public class Ball {
 
    */
 
-   public static accelerationMovement(){
+   public void accelerationMovement(){
     xPosition = xPosition + xVelocity;
     yPosition = yPosition + yVelocity;
 
@@ -158,8 +158,7 @@ public class Ball {
    *  Note: method for calculating Hours:Minutes:Seconds from https://stackoverflow.com/questions/8999638/getting-data-in-seconds-want-to-calculate-hours-minutes-seconds
    */
    public String toString() {
-      return "Location is "+xPosition+"at x and "+yPosition+" at y. The velocity in the x direction is "+xVelocity+" and in the y direction is"+yV]
-      +""
+      return "Location is "+xPosition+" at x and "+yPosition+" at y. The velocity in the x direction is "+xVelocity+" inches per sec and in the y direction is "+yVelocity+" inches per second.";
     }
 
    public double validateXPosition( String argValue ) {
@@ -168,13 +167,13 @@ public class Ball {
 
     double arg = Double.parseDouble( argValue );
 
-    if ( argValue == null  || argValue == "" || ){
+    if ( argValue == null  || argValue == "" ){
 
       return 0;
 
     }
 
-    else if ( arg < (HALF_WIDTH_OF_FIELD)  || arg > (HALF_WIDTH_OF_FIELD) ) {
+    else if ( Math.abs(arg) > HALF_WIDTH_OF_FIELD) {
 
       throw new IllegalArgumentException();
 
@@ -197,7 +196,7 @@ public class Ball {
 
     }
 
-    else if ( arg < (HALF_HEIGHT_OF_FIELD)  || arg > (HALF_HEIGHT_OF_FIELD) ) {
+    else if ( Math.abs(arg) > HALF_HEIGHT_OF_FIELD) {
 
       throw new IllegalArgumentException();
 
@@ -266,34 +265,35 @@ public class Ball {
 
                           "--------------------------\n" );
 
-      System.out.println( "  Creating a new Ball: " );]
+      System.out.println( "  Creating a new Ball: " );
 
 
       Ball ball = new Ball();
 
-      System.out.println("User inputed numbers to test basic methods, remember the numbers.")
+      System.out.println("User inputed numbers to test basic methods, remember the numbers.");
       ball.validateXPosition(args[0]);
       ball.validateYPosition(args[1]);
       ball.validateXVelocity(args[2]);
       ball.validateYVelocity(args[3]);
 
-      System.out.println("Testing get methods in setting the values and output.")
+      System.out.println("Testing get methods in setting the values and output.");
       System.out.println("Ball x position is "+ball.getxPosition());
       System.out.println("Ball y position is "+ball.getyPosition());
       System.out.println("Ball x velocity is "+ball.getxVelocity());
-      System.out.println("Ball y velocity is "+ball.getyPosition()+ "\n");
+      System.out.println("Ball y velocity is "+ball.getyVelocity()+ "\n");
 
 
 
 
-      System.out.println("Test for toString Method: " + ball.toString() );
+      System.out.println("Test for toString Method: " + ball.toString()+"\n" );
 
       System.out.println("Testing for accelerationMovement method in 10 sec time frame: " );
 
       int t = 0;
       while ( t < 10 ) {
         ball.accelerationMovement();
-        ball.toString();
+        System.out.println(ball.toString()+ "\n");
+        t++;
       }
 
 
@@ -302,21 +302,21 @@ public class Ball {
 
       //extremes and particular values
 
-      try { Ball.validateXPosition("-205"); }
+      try { ball.validateXPosition("-205"); }
 
       catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for -205"); }
 
-      try { Ball.validateXPosition("205"); }
+      try { ball.validateXPosition("205"); }
 
       catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for 205"); }
 
-      try { Ball.validateXPosition("20"); }
+      try { ball.validateXPosition("20"); }
 
       catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for 20 "); }
 
       //negatives
 
-      try { Ball.validateXPosition("-20"); }
+      try { ball.validateXPosition("-20"); }
 
       catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for -20 "); }
 
@@ -328,27 +328,127 @@ public class Ball {
 
         random = Math.random() * 1000.0;
 
-        try { Ball.validateXPosition("K2"); }
+        try { ball.validateXPosition("K2"); }
 
-        catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for" +random+  ); }
+        catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for " +random ); }
 
       }
 
       //letters
 
-      try { Ball.validateXPosition("K2"); }
+      try { ball.validateXPosition("K2"); }
 
       catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for K2 "); }
 
-      try { Ball.validateXPosition("XYZ"); }
+      try { ball.validateXPosition("XYZ"); }
 
       catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for XYZ "); }
 
       System.out.println( "\n" );
 
-      
 
 
+      System.out.println("Tests for validateYPosition" );
 
-    
+      //extremes and particular values
+
+      try { ball.validateYPosition("-205"); }
+
+      catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for -205"); }
+
+      try { ball.validateYPosition("205"); }
+
+      catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for 205"); }
+
+      try { ball.validateYPosition("20"); }
+
+      catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for 20 "); }
+
+      //negatives
+
+      try { ball.validateYPosition("-20"); }
+
+      catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for -20 "); }
+
+      //decimals
+
+
+      for(int i = 0; i<4; i++){
+
+        random = Math.random() * 1000.0;
+
+        try { ball.validateYPosition("K2"); }
+
+        catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for " +random ); }
+
+      }
+
+      //letters
+
+      try { ball.validateYPosition("K2"); }
+
+      catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for K2 "); }
+
+      try { ball.validateYPosition("XYZ"); }
+
+      catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for XYZ "); }
+
+      System.out.println( "\n" );
+
+
+      System.out.println("Test for validateXVelocity");
+      //decimals
+
+
+      for(int i = 0; i<4; i++){
+
+        random = Math.random() * 1000.0;
+
+        try { ball.validateXVelocity("K2"); }
+
+        catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for " +random ); }
+
+      }
+
+      //letters
+
+      try { ball.validateXVelocity("K2"); }
+
+      catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for K2 "); }
+
+      try { ball.validateXVelocity("XYZ"); }
+
+      catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for XYZ "); }
+
+      System.out.println( "\n" );
+
+
+      System.out.println("Test for validateYVelocity");
+      //decimals
+
+
+      for(int i = 0; i<4; i++){
+
+        random = Math.random() * 1000.0;
+
+        try { ball.validateYVelocity("K2"); }
+
+        catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for " +random ); }
+
+      }
+
+      //letters
+
+      try { ball.validateYVelocity("K2"); }
+
+      catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for K2 "); }
+
+      try { ball.validateYVelocity("XYZ"); }
+
+      catch( IllegalArgumentException iae ) { System.out.println("Exception thrown for XYZ "); }
+
+      System.out.println( "\n" );
+
+
   } 
+}
