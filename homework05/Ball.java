@@ -55,9 +55,9 @@ public class Ball {
 
    private static double velocity;
 
-   private static final double HALF_WIDTH_OF_FIELD = 200;
+   private static final double HALF_WIDTH_OF_FIELD = 1000;
 
-   private static final double HALF_HEIGHT_OF_FIELD = 200;
+   private static final double HALF_HEIGHT_OF_FIELD = 1000;
 
    private static double xPosition = 0;
 
@@ -117,19 +117,26 @@ public class Ball {
 
 
    public double getxVelocity(){
-    xVelocity = userInitialXVelocity;
 
     return xVelocity;
 
    }
 
+  public void setxVelocity(){
+    xVelocity = userInitialXVelocity;
+   }
+
 
 
    public double getyVelocity(){
-    yVelocity = userInitialYVelocity;
 
     return yVelocity;
 
+   }
+
+
+   public void setyVelocity(){
+    yVelocity = userInitialYVelocity;
    }
 
 
@@ -141,14 +148,21 @@ public class Ball {
 
    }
 
+   public void setxPosition(){
+    yVelocity = userInitialYVelocity;
+   }
+
 
 
    public double getyPosition(){
-    yPosition = userInitialYPosition;
 
     return yPosition;
+  }
 
+   public void setyPosition(){
+    yPosition = userInitialYPosition;
    }
+
 
 
 
@@ -275,6 +289,11 @@ public class Ball {
       ball.validateYPosition(args[1]);
       ball.validateXVelocity(args[2]);
       ball.validateYVelocity(args[3]);
+
+      ball.setxPosition();
+      ball.setyPosition();
+      ball.setxVelocity();
+      ball.setyVelocity();
 
       System.out.println("Testing get methods in setting the values and output.");
       System.out.println("Ball x position is "+ball.getxPosition());
