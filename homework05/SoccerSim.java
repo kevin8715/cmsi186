@@ -70,6 +70,7 @@ public class SoccerSim {
    private static boolean collusion = false;
 
    private static boolean allBallsStopped = false;
+   private static Timer time;
 
 
 
@@ -106,25 +107,33 @@ public class SoccerSim {
       System.exit( 1 );
      }
 
-      Timer time = new Timer();
+      time = new Timer();
       timeSlice = time.validateTimeSliceArg( args[ args.length - 1 ] );
       numberOfBalls =  args.length/4;
       ballStorage = new Ball[numberOfBalls+1];
 
 
-    for(int i = 0; i < numberOfBalls-1; i++){
+    for(int i = 0; i < ballStorage.length-1; i++){
 
       Ball ball = new Ball();
 
       ball.validateXPosition(args[0+4*i]);
+      System.out.println("validateXPosition at "+i + " " + ball.getxPosition());
       ball.validateYPosition(args[1+4*i]);
+      System.out.println("validateYPosition at "+i + " "+ ball.getyPosition());
       ball.validateXVelocity(args[2+4*i]);
+      System.out.println("validateXVelocity at "+i + " "+ ball.getxVelocity());
       ball.validateYVelocity(args[3+4*i]);
+      System.out.println("validateYVelocity at "+i + " "+ ball.getyVelocity());
 
       ball.setxPosition();
+      System.out.println("setxPosition at "+i+" "+ball.getxPosition());
       ball.setyPosition();
+      System.out.println("setyPosition at "+i+" "+ball.getyPosition());
       ball.setxVelocity();
+      System.out.println("setxVelocity at "+i+" "+ball.getxVelocity());
       ball.setyVelocity();
+      System.out.println("setyVelocity at "+i+" "+ball.getyVelocity());
 
       ballStorage[i] = ball;
    }
@@ -158,15 +167,14 @@ public class SoccerSim {
 
       soccerSim.handleInitialArguments( args );
 
-      Timer time = new Timer();
-
+      /*
       int collusionItemOne = -1;
       int collusionItemTwo = -1;
+      System.out.println("\n Ball number "+0+": \n"+ballStorage[0].toString());
+      System.out.println("\n Ball number "+1+": \n"+ballStorage[1].toString());
+      System.out.println("\n Ball number "+2+": \n"+ballStorage[2].toString());
 
       while( time.getTotalSeconds() <= SECONDS_PER_TWELVE_HOURS ){
-      for(int q = 0; q < numberOfBalls; q++){
-          System.out.println("\n Ball number "+q+": \n"+ballStorage[q].toString());
-        }
       for(int r = 0; r < timeSlice; r++){
       allBallsStopped = true;
        for(int i = 0; i < numberOfBalls; i++){
@@ -200,7 +208,7 @@ public class SoccerSim {
      
 
       System.exit( 0 );
-
+*/
    }
 
 }
