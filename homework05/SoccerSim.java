@@ -47,6 +47,7 @@ public class SoccerSim {
    *  Class field definintions go here
    * 
    */
+   private static final double SECONDS_PER_TWELVE_HOURS = 43200;
 
    private final double MAX_Timer_SLICE_IN_SECONDS  = 1800.00;
 
@@ -54,12 +55,14 @@ public class SoccerSim {
 
 
 
-   private static final double HALF_WIDTH_OF_FIELD = 200;
+   private static final double HALF_WIDTH_OF_FIELD = 1000;
 
-   private static final double HALF_HEIGHT_OF_FIELD = 200;
+   private static final double HALF_HEIGHT_OF_FIELD = 1000;
 
 
-   private static final Ball[] ballStorage;
+   private static Ball[] ballStorage;
+
+   private static int numberOfBalls;
 
 
    private static double timeSlice;
@@ -90,22 +93,22 @@ public class SoccerSim {
 
    public void handleInitialArguments( String args[] ) {
 
-     if( 9 <= args.length ) {
+     if( 5 > args.length ) {
 
         System.out.println( "Please start over and enter at least two sets of ball arguments and a Timer slice on the command line." );
 
         System.exit( 1 );
 
       }
-     if(1 == args.length%4){
+     if(1 != args.length%4){
       System.out.println("Illegal number of arguments");
 
       System.exit( 1 );
      }
 
       Timer time = new Timer();
-      timeSlice = time.validateTimerSliceArg( args[ args.length-1 ] );
-      int numberOfBalls =  args.length/4;
+      timeSlice = time.validateTimeSliceArg( args[ args.length - 1 ] );
+      numberOfBalls =  args.length/4;
       ballStorage = new Ball[numberOfBalls+1];
 
 
@@ -118,13 +121,22 @@ public class SoccerSim {
       ball.validateXVelocity(args[2+4*i]);
       ball.validateYVelocity(args[3+4*i]);
 
+      ball.setxPosition();
+      ball.setyPosition();
+      ball.setxVelocity();
+      ball.setyVelocity();
+
       ballStorage[i] = ball;
    }
-      Ball pole = new ball();
-      ball.validateXPosition(0);
-      ball.validateYPosition(0);
-      ball.validateXVelocity(0);
-      ball.validateYVelocity(0);
+      Ball pole = new Ball();
+      pole.validateXPosition("0");
+      pole.validateYPosition("0");
+      pole.validateXVelocity("0");
+      pole.validateYVelocity("0");
+      pole.setxPosition();
+      pole.setyPosition();
+      pole.setxVelocity();
+      pole.setyVelocity();
       ballStorage[ballStorage.length-1]= pole;
  }
 
@@ -142,44 +154,49 @@ public class SoccerSim {
 
    public static void main( String args[] ) {
 
-      SoccerSim SoccerSim = new SoccerSim();
+      SoccerSim soccerSim = new SoccerSim();
 
-      SoccerSim.handleInitialArguments( args );
+      soccerSim.handleInitialArguments( args );
 
       Timer time = new Timer();
 
-      int collusionItemOne;
-      int collusionItemTwo;
+      int collusionItemOne = -1;
+      int collusionItemTwo = -1;
 
       while( time.getTotalSeconds() <= SECONDS_PER_TWELVE_HOURS ){
+      for(int q = 0; q < numberOfBalls; q++){
+          System.out.println("\n Ball number "+q+": \n"+ballStorage[q].toString());
+        }
+      for(int r = 0; r < timeSlice; r++){
       allBallsStopped = true;
-      for(int i = 0; i < numberOfBalls; i++){
-        System.out.println(ballStorage[i]);
-        ballStorage[i].accelerationMovement();
-        if(ballStorage[i].getxVelocity() != 0 || ballStorage[i].getyVelocity()) != 0){
-          allBallsStopped = false;
-          }
-      }
-      for(int i = 0; i < numberOfBalls; i++){
-        for(int j = i; j < numberOfBalls; j++)]
-          if(Math.abs(Math.abs(ballStorage[i].getxPosition()) - Math.abs(ballStorage[j].getxPosition()) < 8.9) && Math.abs(Math.abs(ballStorage[i].getyPosition()) - Math.abs(ballStorage[j].getyPosition()) < 8.9)
+       for(int i = 0; i < numberOfBalls; i++){
+          ballStorage[i].accelerationMovement();
+         if(ballStorage[i].getxVelocity() != 0 || ballStorage[i].getyVelocity() != 0){
+           allBallsStopped = false;
+           }
+       }
+      for(int p = 0; p < numberOfBalls; p++){
+        for(int j = p; j < numberOfBalls; j++){
+          if(Math.abs(ballStorage[p].getxPosition()) - Math.abs(ballStorage[j].getxPosition()) < 8.9 && Math.abs(ballStorage[p].getyPosition()) - Math.abs(ballStorage[j].getyPosition()) < 8.9){
+            collusionItemOne = p;
             collusionItemTwo = j;
             collusion = true;
           }
+        }
       }
 
-        clock.tick();
-      }
+      time.tick();
       if(collusion){
-        System.out.println("Collusion at location: "+ballStorage[collusionLocation].getxPosition()+ " for x and for y at "+ballStorage[collusionLocation].getxPosition());
+        System.out.println("Collusion with ball: "+ collusionItemOne+ "at location "+ballStorage[collusionItemOne].getxPosition()+ " for x and for y at "+ballStorage[collusionItemOne].getyPosition()+"with the ball: "+ collusionItemOne+ "at location "+ballStorage[collusionItemTwo].getxPosition()+ " for x and for y at "+ballStorage[collusionItemTwo].getxPosition());
         System.exit(0);
       }
       if(allBallsStopped){
-        System.out.println("All balls are stopped."+time.toString());
+        System.out.println("NO COLLISION IS POSSIBLE"+time.toString());
         System.exit(0);
       }
 
-
+     }
+   }
      
 
       System.exit( 0 );
