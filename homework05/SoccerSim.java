@@ -70,7 +70,10 @@ public class SoccerSim {
    private static boolean collusion = false;
 
    private static boolean allBallsStopped = false;
+
    private static Timer time;
+
+
 
 
 
@@ -112,41 +115,51 @@ public class SoccerSim {
       numberOfBalls =  args.length/4;
       ballStorage = new Ball[numberOfBalls+1];
 
+      int i = 0;
+      while (i < ballStorage.length-1){
 
-    for(int i = 0; i < ballStorage.length-1; i++){
+      ballStorage[i] = new Ball();
 
-      Ball ball = new Ball();
+      ballStorage[i].validateXPosition(args[0+4*i]);
+      System.out.println("validateXPosition at "+i + " " + ballStorage[i].getxPosition());
+      ballStorage[i].validateYPosition(args[1+4*i]);
+      System.out.println("validateYPosition at "+i + " "+ ballStorage[i].getyPosition());
+      ballStorage[i].validateXVelocity(args[2+4*i]);
+      System.out.println("validateXVelocity at "+i + " "+ ballStorage[i].getxVelocity());
+      ballStorage[i].validateYVelocity(args[3+4*i]);
+      System.out.println("validateYVelocity at "+i + " "+ ballStorage[i].getyVelocity());
 
-      ball.validateXPosition(args[0+4*i]);
-      System.out.println("validateXPosition at "+i + " " + ball.getxPosition());
-      ball.validateYPosition(args[1+4*i]);
-      System.out.println("validateYPosition at "+i + " "+ ball.getyPosition());
-      ball.validateXVelocity(args[2+4*i]);
-      System.out.println("validateXVelocity at "+i + " "+ ball.getxVelocity());
-      ball.validateYVelocity(args[3+4*i]);
-      System.out.println("validateYVelocity at "+i + " "+ ball.getyVelocity());
+      ballStorage[i].setxPosition();
+      System.out.println("setxPosition at "+i+" "+ballStorage[i].getxPosition());
+      ballStorage[i].setyPosition();
+      System.out.println("setyPosition at "+i+" "+ballStorage[i].getyPosition());
+      ballStorage[i].setxVelocity();
+      System.out.println("setxVelocity at "+i+" "+ballStorage[i].getxVelocity());
+      ballStorage[i].setyVelocity();
+      System.out.println("setyVelocity at "+i+" "+ballStorage[i].getyVelocity());
 
-      ball.setxPosition();
-      System.out.println("setxPosition at "+i+" "+ball.getxPosition());
-      ball.setyPosition();
-      System.out.println("setyPosition at "+i+" "+ball.getyPosition());
-      ball.setxVelocity();
-      System.out.println("setxVelocity at "+i+" "+ball.getxVelocity());
-      ball.setyVelocity();
-      System.out.println("setyVelocity at "+i+" "+ball.getyVelocity());
-
-      ballStorage[i] = ball;
+      System.out.println("\n Ball number "+i+": \n"+ballStorage[i].toString());
+      i++;
    }
-      Ball pole = new Ball();
-      pole.validateXPosition("0");
-      pole.validateYPosition("0");
-      pole.validateXVelocity("0");
-      pole.validateYVelocity("0");
-      pole.setxPosition();
-      pole.setyPosition();
-      pole.setxVelocity();
-      pole.setyVelocity();
-      ballStorage[ballStorage.length-1]= pole;
+     System.out.println("\n Ball number "+0+": \n"+ballStorage[0].toString());
+     System.out.println("\n Ball number "+1+": \n"+ballStorage[1].toString());
+     System.out.println("\n Ball number "+2+": \n"+ballStorage[2].toString());
+
+
+      ballStorage[ballStorage.length-1] = new Ball();
+      ballStorage[ballStorage.length-1].validateXPosition("0");
+      ballStorage[ballStorage.length-1].validateYPosition("0");
+      ballStorage[ballStorage.length-1].validateXVelocity("0");
+      ballStorage[ballStorage.length-1].validateYVelocity("0");
+      ballStorage[ballStorage.length-1].setxPosition();
+      ballStorage[ballStorage.length-1].setyPosition();
+      ballStorage[ballStorage.length-1].setxVelocity();
+      ballStorage[ballStorage.length-1].setyVelocity();
+      System.out.println("\n Ball number "+0+": \n"+ballStorage[0].toString());
+      System.out.println("\n Ball number "+1+": \n"+ballStorage[1].toString());
+      System.out.println("\n Ball number "+2+": \n"+ballStorage[2].toString());
+      System.out.println("\n Ball number "+3+": \n"+ballStorage[3].toString());
+
  }
 
 
@@ -154,7 +167,7 @@ public class SoccerSim {
   /**
    *  The main program starts here
    *  remember the constraints from the project description
-   *  @see  http://bjohnson.lmu.build/cmsi186web/homework04.html
+   *  @see  http://bjohnson.lmu.build/cmsi186web/homework05.html
    *  @param  args  String array of the arguments from the command line
    *                args[0] is the angle for which we are looking
    *                args[1] is the Timer slice; this is optional and defaults to 60 seconds
