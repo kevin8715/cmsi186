@@ -45,27 +45,27 @@ public class Ball {
 
    */
 
-   private static double userInitialXPosition;
+   private double userInitialXPosition;
 
-   private static double userInitialYPosition;
+   private double userInitialYPosition;
 
-   private static double userInitialXVelocity;
+   private double userInitialXVelocity;
 
-   private static double userInitialYVelocity;
+   private double userInitialYVelocity;
 
-   private static double velocity;
+   private double velocity;
 
    private static final double HALF_WIDTH_OF_FIELD = 1000;
 
    private static final double HALF_HEIGHT_OF_FIELD = 1000;
 
-   private static double xPosition = 0;
+   private double xPosition = 0;
 
-   private static double yPosition = 0;
+   private double yPosition = 0;
 
-   private static double xVelocity = 0;
+   private double xVelocity = 0;
 
-   private static double yVelocity = 0;
+   private double yVelocity = 0;
 
 
 
@@ -102,6 +102,10 @@ public class Ball {
 
     xVelocity = xVelocity * 0.99;
     yVelocity = yVelocity * 0.99;
+    if(xVelocity < (0.08333333))
+      xVelocity = 0;
+    if(yVelocity < (0.08333333))
+      yVelocity = 0;
 
 
    }
@@ -142,14 +146,13 @@ public class Ball {
 
 
    public double getxPosition(){
-    xPosition = userInitialXPosition;
 
     return xPosition;
 
    }
 
    public void setxPosition(){
-    yVelocity = userInitialYVelocity;
+    xPosition = userInitialXPosition;
    }
 
 
