@@ -180,6 +180,7 @@ public class SoccerSim {
          if(ballStorage[i].getxVelocity() != 0 || ballStorage[i].getyVelocity() != 0){
            allBallsStopped = false;
            }
+         }
         for(int p = 0; p < numberOfBalls; p++){
           for(int j = p+1; j < numberOfBalls; j++){
           if((Math.abs(ballStorage[p].getxPosition() - ballStorage[j].getxPosition()))*12 < 8.9 && (Math.abs(ballStorage[p].getyPosition() - ballStorage[j].getyPosition())*12) < 8.9){
@@ -194,18 +195,14 @@ public class SoccerSim {
         System.exit(0);
          }
         if(allBallsStopped){
-        System.out.println("NO COLLISION IS POSSIBLE"+time.toString());
+        System.out.println("NO COLLISION IS POSSIBLE"+ time.toString());
         System.exit(0);
         }
-    }
-
       time.tick();
-
-     }
+    }
    }
+   System.exit( 0 );
      
-
-      System.exit( 0 );
    }
 
 }
