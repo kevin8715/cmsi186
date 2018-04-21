@@ -298,9 +298,55 @@ public class BrobInt {
    *  @return BrobInt that is the product of the value of this BrobInt and the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt multiply( BrobInt gint ) {
+    byte storage = 0;
+    byte carryOn = 0;
+    byte extraStorage= 0;
+    byte r = 0;
+    byte s;
+    byte[] product = new byte[gint.size + this.size];
+    if (this.equals(ONE)) {
+         return gint;
+      } 
+    else if (gint.equals(ONE)) {
+         return this;
       }
-      
-   }
+    else if (gint.size > this.size) {
+      if(this.sign == gint.sign){
+      s = 0;
+      else{
+      s = 1;
+      }
+    }
+      for (int i = 0; i < gint.size; i++) {
+         for (int j = 0; j < this.size; j++) {
+            storage = gint.byteVersion[i] * this.byteVersion[j];
+            if(storage > 10){
+              product[i+j-1] += storage%10;
+              product[i+j] += storage/10;
+            }
+         }
+         
+         for (int k = 0; k < product.length; k++) {
+            storage = product[k];
+            if(product[k] < 10){
+            }
+            else{
+            product[k] = 0;
+            while(storage > 10){
+               answer[k + r] += answer[k] % 10;
+               storage = storage/10;
+               r++;
+            }
+          }
+         }
+      }
+      return new BrobInt(product, s);  
+    }
+    else{
+     return gint.multiply(this);
+      }
+    
+ }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  Method to divide the value of this BrobIntk by the BrobInt passed as argument
