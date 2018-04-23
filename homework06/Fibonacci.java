@@ -32,10 +32,8 @@ public class Fibonacci {
    private static final  int NO_CMD_LINE_ARGS = -1;
    private static final  int BAD_CMD_LINE_ARG = -2;
 
-   public static final BrobInt ZERO  = new BrobInt(  "0" );   
-   public static final BrobInt ONE   = new BrobInt(  "1" );
    public static BrobInt fibonacciCurrent  = new BrobInt( "0" );
-   public static BrobInt fibonacciMinusOne = new BrobInt( "0" ); 
+   public static BrobInt fibonacciMinusOne = new BrobInt( "1" ); 
    public static BrobInt fibonacciMinusTwo = new BrobInt( "0" );
    public static int count = 0;
 
@@ -77,26 +75,26 @@ public class Fibonacci {
                    break;
       }
       System.out.println( "\n\n   Starting from zero, the " + maxCount + cardinality + " Fibonacci number is: " );
-      if(maxCount == 0) {
+      if ( maxCount == 0 ) {
         System.out.println( "\n " + ZERO );
       } 
-      else if maxCount == 1) {
+      else if ( maxCount == 1 ) {
         System.out.println( "\n    " + ONE );
       } 
-      else{
+      else {
         count = 1;
         fibonacciMinusOne = ONE;
         fibonacciMinusTwo = ZERO;
         if( maxCount > working ) {
           System.out.println( "\n This may take me a while; please be patient!!\n\n" );
         }
-        while (count < maxCount){
+        while ( count < maxCount ) {
         fibonacciCurrent = fibonacciMinusOne.add( fibonacciMinusTwo );
         fibonacciMinusTwo = fibonacciMinusOne;
         fibonacciMinusOne = fibonacciCurrent;
         count++;
       }
-      System.out.println("\n " + fibonacciCurrent);
+      System.out.println( "\n " + fibonacciCurrent );
       }
       System.exit( 0 );
    }
