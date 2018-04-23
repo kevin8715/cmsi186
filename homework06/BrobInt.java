@@ -244,7 +244,11 @@ public class BrobInt {
        return new BrobInt(sum, s);
     }
     else if(comparision == -1 && this.sign == 0 && gint.sign == 0){
-      return gint.addByte(this);
+      BrobInt b = gint.addByte(this);
+      System.out.println("recursive 1 gint: "+gint.toString());
+      System.out.println("recursive 1 this: "+this.toString());
+      System.out.println("after addByte call: "+b.toString());
+      return b;
     }
     else if(this.sign == 1 && gint.sign == 0){
       return gint.subtractByte(this.flipSign());
@@ -382,7 +386,7 @@ public class BrobInt {
           }
          }
       }
-      return new BrobInt(product, s);  
+      return new BrobInt(removeZeros(product), s);  
     }
     else{
      return gint.multiply(this);
@@ -396,15 +400,15 @@ public class BrobInt {
    *  @return BrobInt that is the dividend of this BrobInt divided by the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt divide( BrobInt gint ) {
+    /*
     byte quotientLength;
     byte dividerLength = (byte)gint.byteVersion.length;
-    byte storage = 0;
+    int storage = 0;
     byte carryOn = 0;
     byte extraStorage= 0;
-    byte r = 0;
     byte s;
-    BrobInt divisor = this;
-    quotientLength = ((byte)(this.byteVersion.length-gint.byteVersion.length));
+    BrobInt dividend = this;
+    quotientLength = ((byte)(this.byteVersion.length-gint.byteVersion.length+1));
     byte[] quotient = new byte[quotientLength];
     if (this.equals(ONE)) {
          return ZERO;
@@ -425,23 +429,30 @@ public class BrobInt {
       else{
       s = 1;
       }
-    for(int i = 0; i < quotientLength; i++){
-    storage = ((byte)(divisor.byteVersion[divisor.byteVersion.length-r-1]/gint.byteVersion[gint.byteVersion.length-r-1]));
-    while( !( storage > 0 && divisor.byteVersion[r]%storage >= 1)){
+    System.out.println("Still working after assigning sign");
+    for(int i = 0; i < quotient.length; i++){
+    storage = (dividend.byteVersion[dividend.byteVersion.length-r-1]/gint.byteVersion[gint.byteVersion.length-r-1]);
+     System.out.println("Still working after for loop i: " + i);
+    while( !( storage > 0 && dividend.byteVersion[r]%storage >= 1)){
       r++;
-      storage = (byte)(divisor.byteVersion[divisor.byteVersion.length-r]/gint.byteVersion[gint.byteVersion.length-i]);
+      storage = dividend.byteVersion[dividend.byteVersion.length-r]/gint.byteVersion[gint.byteVersion.length-i];
+       System.out.println("Still working, while loop");
     }
     r = (byte)(r+dividerLength);
     byte[] bigStorage = new byte[quotientLength];
     for(int j = 0; j < gint.byteVersion.length; j++){ 
       bigStorage[j] = (byte)(gint.byteVersion[j]*r);
+       System.out.println("Still working, for loop j: "+ j);
     }
     quotient[quotient.length-i] = r;
-    divisor = divisor.subtractByte( new BrobInt(bigStorage, (byte)0));
+    dividend = dividend.subtractByte( new BrobInt(bigStorage, (byte)0));
    }
  }
  remainder = quotient;
  return  new BrobInt(quotient, s);
+ */
+ throw new UnsupportedOperationException( "\n         Sorry, that operation is not yet implemented." );
+
 }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
