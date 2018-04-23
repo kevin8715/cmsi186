@@ -250,9 +250,10 @@ public class BrobIntTester {
 
       try {
          System.out.println( "    Test 014: Adding g11 and g12: " );
-         System.out.println( "      expecting: 30 and got " + g11.add( g12 ) );
+         System.out.println( "      expecting: 30 and got " + g11.addByte( g12 ).toString() );
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
+
 
       System.out.println( "\n    Test 015: Making a thirteenth new BrobInt, calling add methods: "  );
       try {
@@ -268,27 +269,17 @@ public class BrobIntTester {
 
       try {
          System.out.println( "    Test 016: Adding g11 and g13 [10 + 234567] using bytes: " );
-         System.out.println( "      expecting: 234577 and got " + g11.add( g13 ) );
+         System.out.println( "      expecting: 234577 and got " + g11.addByte( g13 ) );
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
-      try {
-         System.out.println( "    Test 017: Adding g11 and g13 [10 + 234567] using ints: " );
-         System.out.println( "      expecting: 234577 and got " + g11.addInt( g13 ) );
-      }
-      catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
       try {
          System.out.println( "    Test 018: Adding g13 and g11 [234567 + 10] using bytes: " );
-         System.out.println( "      expecting: 234577 and got " + g13.add( g11 ) );
+         System.out.println( "      expecting: 234577 and got " + g13.addByte( g11 ) );
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
-      try {
-         System.out.println( "    Test 019: Adding g13 and g11 [234567 + 10] using ints: " );
-         System.out.println( "      expecting: 234577 and got " + g13.addInt( g11 ) );
-      }
-      catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
       System.out.println( "\n    Test 020: Making a fourteenth new BrobInt, calling add methods: "  );
       try {
@@ -316,25 +307,14 @@ public class BrobIntTester {
 
       try {
          System.out.println( "    Test 022: Adding g14 and g15 [-234567 + -10] using bytes: " );
-         System.out.println( "      expecting: -234577 and got " + g14.add( g15 ) );
+         System.out.println( "      expecting: -234577 and got " + g14.addByte( g15 ) );
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
-      try {
-         System.out.println( "    Test 023: Adding g14 and g15 [-234567 + -10] using ints: " );
-         System.out.println( "      expecting: -234577 and got " + g14.addInt( g15 ) );
-      }
-      catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
       try {
          System.out.println( "    Test 024: Adding g15 and g14 [-10 + -234567] using bytes: " );
-         System.out.println( "      expecting: -234577 and got " + g15.add( g14 ) );
-      }
-      catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
-
-      try {
-         System.out.println( "    Test 025: Adding g15 and g14 [-10 + -234567] using ints: " );
-         System.out.println( "      expecting: -234577 and got " + g15.addInt( g14 ) );
+         System.out.println( "      expecting: -234577 and got " + g15.addByte( g14 ) );
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
@@ -348,71 +328,87 @@ public class BrobIntTester {
 
       try {
          System.out.println( "    Test 027: Adding g14 and g16 [-234567 + -999999] using bytes: " );
-         System.out.println( "      expecting: -1234566 and got " + g14.add( g16 ) );
+         System.out.println( "      expecting: -1234566 and got " + g14.addByte( g16 ) );
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
-      try {
-         System.out.println( "    Test 028: Adding g14 and g16 [-234567 + -999999] using ints: " );
-         System.out.println( "      expecting: -1234566 and got " + g14.addInt( g16 ) );
-      }
-      catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
       try {
          System.out.println( "    Test 029: Adding g16 and g14 [-999999 + -234567] using bytes: " );
-         System.out.println( "      expecting: -1234566 and got " + g16.add( g14 ) );
+         System.out.println( "      expecting: -1234566 and got " + g16.addByte( g14 ) );
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
-      try {
-         System.out.println( "    Test 030: Adding g16 and g14 [-999999 + -234567] using ints: " );
-         System.out.println( "      expecting: -1234566 and got " + g16.addInt( g14 ) );
-      }
-      catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
       try {
          System.out.println( "\n      Test 031: Adding g1 and g4 using bytes: " );
          System.out.println( "      expecting: 144127909719725076806064402568842359092656528233967026820237074760\n" +
-                             "        and got: " + g1.add( g4 ) );
+                             "        and got: " + g1.addByte( g4 ) );
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
-
-      try {
-         System.out.println( "\n      Test 032: Adding g4 and g1 using ints: " );
-         System.out.println( "      expecting: 144127909719725076806064402568842359092656528233967026820237074760\n" +
-                             "        and got: " + g4.addInt( g1 ) );
-      }
-      catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
-
+      
       System.out.println( "\n\n    TESTING COMPARETO() METHOD:\n" +
-                          "    ===========================" );
+                          "    ===========================\n" +
+                          "    NOTE: this.compareTo(that) returns: -1 if this < that\n" +
+                          "                               returns: +1 if this > that\n" +
+                          "                               returns:  0 if this = that" );
       try {
-         System.out.println( "\n    Test 033: Checking compareTo() method on g1 and g2: "  );
+         System.out.println( "\n    Test 033: Checking compareTo() method on g1.compareTo g2: "  );
          System.out.println( "      expecting: 0 and got: " + g1.compareTo( g2 ) );
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
       try {
-         System.out.println( "\n    Test 034: Checking compareTo() method on g2 and g1: "  );
+         System.out.println( "\n    Test 034: Checking compareTo() method on g2.compareTo g1: "  );
          System.out.println( "      expecting: 0 and got: " + g2.compareTo( g1 ) );
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
       try {
-         System.out.println( "\n    Test 035: Checking compareTo() method on g1 and g3: "  );
+         System.out.println( "\n    Test 035: Checking compareTo() method on g1.compareTo g3: "  );
          System.out.println( "      expecting: positive value and got: " + g1.compareTo( g3 ) );
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
       try {
-         System.out.println( "\n    Test 036: Checking compareTo() method on g3 and g1: "  );
+         System.out.println( "\n    Test 036: Checking compareTo() method on g3.compareTo g1: "  );
          System.out.println( "      expecting: negative value and got: " + g3.compareTo( g1 ) );
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
       try {
-         System.out.println( "\n    Test 037: Checking compareTo() method on g3 and g4: "  );
+         System.out.println( "\n    Test 037: Checking compareTo() method on g3.compareTo g4: "  );
          System.out.println( "      expecting: positive value and got: " + g3.compareTo( g4 ) );
+      }
+      catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
+
+      try {
+         System.out.println( "\n    Test 037a: Checking compareTo() method on 123456789.compareTo 234: "  );
+         System.out.println( "      expecting: positive value and got: " + (new BrobInt("123456789").compareTo( new BrobInt("234"))) );
+      }
+      catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
+
+      try {
+         System.out.println( "\n    Test 037b: Checking compareTo() method on 123.compareTo 123456789: "  );
+         System.out.println( "      expecting: ngative value and got: " + (new BrobInt("123").compareTo( new BrobInt("123456789"))) );
+      }
+      catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
+
+      try {
+         System.out.println( "\n    Test 037c: Checking compareTo() method on g3.compareTo 999: "  );
+         System.out.println( "      expecting: positive value and got: " + g3.compareTo( new BrobInt( "999" ) ) );
+      }
+      catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
+
+      try {
+         System.out.println( "\n    Test 037d: Checking compareTo() method on 1234.compareTo -999: "  );
+         System.out.println( "      expecting: positive value and got: " + (new BrobInt("1234").compareTo( new BrobInt( "-999" ) ) ) );
+      }
+      catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
+
+      try {
+         System.out.println( "\n    Test 037e: Checking compareTo() method on -999.compareTo G3: "  );
+         System.out.println( "      expecting: negative value and got: " + new BrobInt( "-999" ).compareTo( g3 ) );
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
@@ -421,49 +417,49 @@ public class BrobIntTester {
       System.out.println( "\n      Test 038: Subtracting g13 take away g11 [234567 - 10] using bytes: " );
       try {
          System.out.println( "      expecting: 234557\n" +
-                             "        and got: " + g13.subtract( g11 ) );
+                             "        and got: " + g13.subtractByte( g11 ) );
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
       System.out.println( "\n      Test 039: Subtracting g11 take away g13 [10 - 234567] using bytes: " );
       try {
          System.out.println( "      expecting: -234557\n" +
-                             "        and got: " + g11.subtract( g13 ) );
+                             "        and got: " + g11.subtractByte( g13 ) );
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
       System.out.println( "\n      Test 040: Subtracting g13 take away g15 [234567 - (-10)] using bytes: " );
       try {
          System.out.println( "      expecting: 234577\n" +
-                             "        and got: " + g13.subtract( g15 ) );
+                             "        and got: " + g13.subtractByte( g15 ) );
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
       System.out.println( "\n      Test 041: Subtracting g15 take away g13 [(-10) - 234567] using bytes: " );
       try {
          System.out.println( "      expecting: -234577\n" +
-                             "        and got: " + g15.subtract( g13 ) );
+                             "        and got: " + g15.subtractByte( g13 ) );
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
       System.out.println( "\n      Test 042: Subtracting g14 take away g16 [(-234567) - (-999999)] using bytes: " );
       try {
          System.out.println( "      expecting: 765432\n" +
-                             "        and got: " + g14.subtract( g16 ) );
+                             "        and got: " + g14.subtractByte( g16 ) );
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
       System.out.println( "\n      Test 043: Subtracting g16 take away g14 [(-999999) - (-234567)] using bytes: " );
       try {
          System.out.println( "      expecting: -765432\n" +
-                             "        and got: " + g16.subtract( g14 ) );
+                             "        and got: " + g16.subtractByte( g14 ) );
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
       System.out.println( "\n      Test 044: Subtracting g1 take away g1 [too long to list] using bytes: " );
       try {
          System.out.println( "      expecting: 000000000000000000000000000000000000000000000000000000000000000000\n" +
-                             "        and got: " + g1.subtract( g1 ) );
+                             "        and got: " + g1.subtractByte( g1 ) );
       }
       catch( Exception e ) { System.out.println( "        Exception thrown:  " ); }
 
