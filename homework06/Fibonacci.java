@@ -32,6 +32,9 @@ public class Fibonacci {
    private static final  int NO_CMD_LINE_ARGS = -1;
    private static final  int BAD_CMD_LINE_ARG = -2;
 
+   public static final BrobInt ZERO     = new BrobInt(  "0" );      /// Constant for "zero"
+   public static final BrobInt ONE      = new BrobInt(  "1" );      /// Constant for "one"
+
    public static BrobInt fibonacciCurrent  = new BrobInt( "0" );
    public static BrobInt fibonacciMinusOne = new BrobInt( "1" ); 
    public static BrobInt fibonacciMinusTwo = new BrobInt( "0" );
@@ -89,7 +92,7 @@ public class Fibonacci {
           System.out.println( "\n This may take me a while; please be patient!!\n\n" );
         }
         while ( count < maxCount ) {
-        fibonacciCurrent = fibonacciMinusOne.add( fibonacciMinusTwo );
+        fibonacciCurrent = fibonacciMinusOne.addByte(fibonacciMinusTwo );
         fibonacciMinusTwo = fibonacciMinusOne;
         fibonacciMinusOne = fibonacciCurrent;
         count++;
