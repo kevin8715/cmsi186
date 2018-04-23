@@ -57,21 +57,19 @@ public class BrobInt {
    */
    public BrobInt( String value ) {
     internalValue = value;
-    for(int i = byteVersion.length; i > -1; i--){
-      reversed += internalValue.substring(i,i+1);
-    }
-    if(!(this.validateDigits())){
+    reversed = new StringBuffer( internalValue ).reverse().toString();
+    if(!(validateDigits(internalValue))){
       throw new IllegalArgumentException("The string contains non-numbers.");
     }
-    if(internalValue.equals(null) || value.equals("")){
+    if(internalValue.equals(null) || internalValue.equals("")){
       throw new IllegalArgumentException("No string was found");
     }
     if(internalValue.substring(0,1).equals("-")){
-      this.stringCharacterRemover(value, 0);
+      internalValue = stringCharacterRemover(internalValue, 0);
       sign = 1;
     }
     else if(internalValue.substring(0,1).equals("+")){
-      this.stringCharacterRemover(value, 0);
+      internalValue = stringCharacterRemover(internalValue, 0);
       sign = 0;
     }
     else{
@@ -115,13 +113,13 @@ public class BrobInt {
    *  note that there is no return false, because of throwing the exception
    *  note also that this must check for the '+' and '-' sign digits
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public boolean validateDigits() {
+   public boolean validateDigits(String value) {
     boolean check = false;
     String digits = "0123456789";
-    for(int i = 0; i < internalValue.length(); i++){
+    for(int i = 0; i < value.length(); i++){
       check = false;
-      for(int j = 0; j < digits.length(); i++){
-        if(internalValue.substring(i, i+1).equals(digits.substring(j, j+1))){
+      for(int j = 0; j < digits.length(); j++){
+        if(value.substring(i, i+1).equals(digits.substring(j, j+1))){
           check = true;
           break;
         }
@@ -140,15 +138,6 @@ public class BrobInt {
    }
    //might not need this method
 
-   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   *  Method to get the sign from a BrobInt
-   *  @return  sign
-   *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public int getSign() {
-    return sign;
-   }
-
-
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  Method to reverse the value of this BrobInt
@@ -156,6 +145,7 @@ public class BrobInt {
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt reverser() {
       byte[] reverse = new byte[byteVersion.length];
+
       for(int i = 0; i <byteVersion.length; i++){
         reverse[i] = byteVersion[byteVersion.length-i];
       }
@@ -166,8 +156,8 @@ public class BrobInt {
    *  @return nothing
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt flipSign(){
-    if(this.sign == 0){
-      this.sign = 1;
+    if(this.sign == (byte)0){
+      this.sign = (byte)1;
     }
     else{
       this.sign = 0;
