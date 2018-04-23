@@ -32,6 +32,13 @@ public class Fibonacci {
    private static final  int NO_CMD_LINE_ARGS = -1;
    private static final  int BAD_CMD_LINE_ARG = -2;
 
+   public static final BrobInt ZERO  = new BrobInt(  "0" );   
+   public static final BrobInt ONE   = new BrobInt(  "1" );
+   public static BrobInt fibonacciCurrent  = new BrobInt( "0" );
+   public static BrobInt fibonacciMinusOne = new BrobInt( "0" ); 
+   public static BrobInt fibonacciMinusTwo = new BrobInt( "0" );
+   public static int count = 0;
+
    public Fibonacci() {
       super();
    }
@@ -58,8 +65,6 @@ public class Fibonacci {
             System.exit( BAD_CMD_LINE_ARG );
          }
       }
-
-     // this is just for making the output pretty... no real "fibonacci" functionality
       int lastIndex = args[0].length() - 1;
       switch( args[0].charAt( lastIndex ) ) {
          case '1': cardinality = end1;
@@ -71,21 +76,28 @@ public class Fibonacci {
          default : cardinality = endRest;
                    break;
       }
-
       System.out.println( "\n\n   Starting from zero, the " + maxCount + cardinality + " Fibonacci number is: " );
-
-     // NOTE: you may want to handle the first and second Fibonacc numbers as 'special cases'...
-
-     // NOTE: you WILL need to initialize your BrobInts to keep track of things....
-
-     // NOTE: this section is just a happy notification that lets the user know to be patient.......
-      if( maxCount > working ) {
-         System.out.println( "\n                This may take me a while; please be patient!!\n\n" );
+      if(maxCount == 0) {
+        System.out.println( "\n " + ZERO );
+      } 
+      else if maxCount == 1) {
+        System.out.println( "\n    " + ONE );
+      } 
+      else{
+        count = 1;
+        fibonacciMinusOne = ONE;
+        fibonacciMinusTwo = ZERO;
+        if( maxCount > working ) {
+          System.out.println( "\n This may take me a while; please be patient!!\n\n" );
+        }
+        while (count < maxCount){
+        fibonacciCurrent = fibonacciMinusOne.add( fibonacciMinusTwo );
+        fibonacciMinusTwo = fibonacciMinusOne;
+        fibonacciMinusOne = fibonacciCurrent;
+        count++;
       }
-
-      System.out.println( "\n\n\n  ...HA!! Like I'm going to do the ENTIRE thing for you.....  *grins*" );
-
-
+      System.out.println("\n " + fibonacciCurrent);
+      }
       System.exit( 0 );
    }
 }
