@@ -58,9 +58,7 @@ public class BrobInt {
    public BrobInt( String value ) {
     internalValue = value;
     reversed = new StringBuffer( internalValue ).reverse().toString();
-    if(!(validateDigits(internalValue))){
-      throw new IllegalArgumentException("The string contains non-numbers.");
-    }
+    validateDigits(internalValue);
     if(internalValue.equals(null) || internalValue.equals("")){
       throw new IllegalArgumentException("No string was found");
     }
@@ -115,18 +113,43 @@ public class BrobInt {
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public boolean validateDigits(String value) {
     boolean check = false;
-    String digits = "0123456789";
+    String digits = "+-0123456789";
     for(int i = 0; i < value.length(); i++){
       check = false;
       for(int j = 0; j < digits.length(); j++){
         if(value.substring(i, i+1).equals(digits.substring(j, j+1))){
           check = true;
           break;
+          } 
         }
+    if (!(check)){
+      throw new IllegalArgumentException("The string contains non-numbers."); 
+         }
+      }
+    return check;
+   }
+
+ /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   *  Method to remove zeros from a byte array in a complicated way
+   *  @return  byteVersion
+   *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+   public byte[] removeZeros(byte[] input) {
+    byte[] storage;
+    int count = 0;
+    for(int i = 0; i < input.length; i++){
+      if(input[i] != 0){
+        count++;
       }
     }
-    return check;
-      
+    storage = new byte[count];
+    count = 0;
+    for(int i = 0; i < input.length; i++){
+      if(input[i] != 0){
+        storage[count] = input[i];
+        count++;
+      }
+    }
+    return storage;
    }
 
    /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -170,38 +193,57 @@ public class BrobInt {
    *  @param  gint         BrobInt to reverse its value
    *  @return BrobInt that is the reverse of the value of the BrobInt passed as argument
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-   public static BrobInt reverser( BrobInt gint ) {
+   public BrobInt reverser( BrobInt gint ) {
       return gint.reverser();
    }
 
+   public byte[] extendByte(byte[] input , int length){
+      byte[] extended = new byte[input.length+length];
+      for(int i = 0; i < input.length; i++){
+        extended[i] = input[i];
+      }
+      return extended;
+   }
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  Method to add the value of a BrobIntk passed as argument to this BrobInt using byte array
    *  @param  gint         BrobInt to add to this
    *  @return BrobInt that is the sum of the value of this BrobInt and the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt addByte( BrobInt gint ) {
-    if(gint.equals(ZERO))
+    int comparision = this.compareTo(gint);
+    if(gint.equals(ZERO)){
       return this;
+    }
+    if(this.equals(ZERO)){
+      return gint;
+    }
       int storage = 0;
       byte carryOn = 0;
       byte s = 0;
       byte[] sum;
-    if(this.byteVersion.length < gint.byteVersion.length && this.sign == 0 && gint.sign ==0){
-        sum = gint.byteVersion;
-      for(int i = 0; i < this.byteVersion.length;  i++){
-        storage = sum[i] + this.byteVersion[i];
+    if(comparision == 1 && this.sign == 0 && gint.sign == 0){
+      if(gint.byteVersion.length == this.byteVersion.length && gint.byteVersion[gint.byteVersion.length-1] + this.byteVersion[this.byteVersion.length-1] > 9){
+        sum = extendByte(this.byteVersion, 1);
+     }
+      sum = this.byteVersion;
+      System.out.println("before everything: "+new BrobInt(sum, s).toString());
+      for(int i = 0; i < gint.byteVersion.length;  i++){
+        storage = sum[i] + gint.byteVersion[i];
         if(storage > 9){
           sum[i+1] +=1;
           sum[i] = (byte)(storage%10);
+          System.out.println("carry one: " + new BrobInt(sum, s).toString());
 
         }
         else{
           sum[i] = (byte)storage;
+          System.out.println("no carry on: "+ new BrobInt(sum, s).toString());
         }
+        storage = 0;
        }
        return new BrobInt(sum, s);
     }
-    else if(this.byteVersion.length > gint.byteVersion.length && this.sign == 0 && gint.sign == 0){
+    else if(comparision == -1 && this.sign == 0 && gint.sign == 0){
       return gint.addByte(this);
     }
     else if(this.sign == 1 && gint.sign == 0){
@@ -210,8 +252,11 @@ public class BrobInt {
     else if(this.sign == 0 && gint.sign == 1){
       return this.subtractByte(gint.flipSign());
     }
-    else if(this.byteVersion.length < gint.byteVersion.length && this.sign == -1 && gint.sign == -1){
+    else if(comparision == -1 && this.sign == -1 && gint.sign == -1){
       return (gint.flipSign().addByte(this.flipSign())).flipSign();
+    }
+    else if(comparision == 0){
+      return this.multiply(TWO);
     }
     else{
     return (this.flipSign().addByte(gint.flipSign())).flipSign();
@@ -231,44 +276,50 @@ public class BrobInt {
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    *  Method to subtract the value of a BrobIntk passed as argument to this BrobInt using bytes
    *  @param  gint         BrobInt to subtract from this
-   *  @return BrobInt that is the difference of the value of this BrobInt and the one passed in
+   *  @return BrobInt that is the difference of the value of this BrobIntTesterbInt and the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt subtractByte( BrobInt gint ) {
-   if(gint.equals("") || gint.equals(null))
+    int comparision = this.compareTo(gint);
+   if(gint.internalValue.equals("") || gint.internalValue.equals(null) || gint.equals(ZERO))
       return this;
-      byte storage = 0;
+      int storage = 0;
       byte carryOn = 0;
-      byte s = 0;
+      byte s = -1;
       byte[] difference;
-    if(this.byteVersion.length < gint.byteVersion.length && this.sign == 0 && gint.sign ==0){
+    if(comparision == -1 && this.sign == 0 && gint.sign == 0){
       difference = gint.byteVersion;
       for(int i = 0; i < this.byteVersion.length;  i++){
-        storage = (byte)(difference[i] - this.byteVersion[i]);
+        storage = difference[i] - this.byteVersion[i];
         if(storage < 0){
-          difference[i+1] -=1;
+          difference[i+1] = (byte)(difference[i+1] - 1);
           difference[i] = (byte)(10 + storage);
-
+          System.out.println("carry on: "+ new BrobInt(difference, s).toString());
          }
         else{
-          difference[i] = storage;
+          difference[i] = (byte)storage;
+          System.out.println("no carry on: "+ new BrobInt(difference, s).toString());
        }
+       storage = 0;
     }
-    return new BrobInt(difference, s);
+    return new BrobInt(removeZeros(difference), s);
     }
-    else if(this.byteVersion.length > gint.byteVersion.length && this.sign == 0 && gint.sign == 0){
+    else if(comparision == 0){
+      return ZERO;
+    }
+    else if(comparision == 1 && this.sign == 0 && gint.sign == 0){
       return gint.subtractByte(this).flipSign();
     }
     else if(this.sign == 1 && gint.sign == 0){
-      return (gint.addByte(this.flipSign())).flipSign();
+      return (gint.addByte(this.flipSign()));
     }
     else if(this.sign == 0 && gint.sign == 1){
       return this.addByte(gint.flipSign());
     }
-    else if(this.byteVersion.length < gint.byteVersion.length && this.sign == -1 && gint.sign == -1){
-      return gint.flipSign().subtractByte(this.flipSign());
+    else if(comparision == -1 && this.sign == -1 && gint.sign == -1){
+      return (gint.flipSign().subtractByte(this.flipSign()));
     }
     else{
-      return (this.flipSign().subtractByte(gint.flipSign())).flipSign();
+      return (this.flipSign().subtractByte(gint.flipSign()));
     }
 
   }
@@ -288,9 +339,9 @@ public class BrobInt {
    *  @return BrobInt that is the product of the value of this BrobInt and the one passed in
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public BrobInt multiply( BrobInt gint ) {
-    byte storage = 0;
+    int storage = 0;
     byte carryOn = 0;
-    byte extraStorage= 0;
+    int extraStorage= 0;
     byte r = 0;
     byte s;
     byte[] product = new byte[gint.byteVersion.length + this.byteVersion.length];
@@ -300,7 +351,7 @@ public class BrobInt {
     else if (gint.equals(ONE)) {
          return this;
       }
-    else if (gint.byteVersion.length > this.byteVersion.length) {
+    else if (gint.byteVersion.length >= this.byteVersion.length) {
       if(this.sign == gint.sign){
       s = 0;
         }
@@ -309,22 +360,23 @@ public class BrobInt {
         }
       for (int i = 0; i < gint.byteVersion.length; i++) {
          for (int j = 0; j < this.byteVersion.length; j++) {
-            storage = (byte)(gint.byteVersion[i] * this.byteVersion[j]);
+            storage = (gint.byteVersion[i] * this.byteVersion[j]);
             if(storage > 10){
-              product[i+j-1] += storage%10;
-              product[i+j] += storage/10;
+              product[i+j] += (byte)(storage%10);
+              product[i+j+1] += (byte)(storage/10);
             }
+            System.out.println("carry one: " + new BrobInt(product, s).toString());
+            storage = 0;
          }
          
          for (int k = 0; k < product.length; k++) {
-            storage = product[k];
-            if(product[k] < 10){
-            }
+            extraStorage = (product[k]);
+            if(product[k] < 10){}
             else{
             product[k] = 0;
-            while(storage > 10){
+            while(extraStorage > 10){
                product[k + r] += product[k] % 10;
-               storage = (byte)(storage/10);
+               extraStorage = (extraStorage/10);
                r++;
             }
           }
@@ -443,7 +495,7 @@ public class BrobInt {
    *        also using the java String "equals()" method -- THAT was easy, too..........
    *  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
    public boolean equals( BrobInt gint ) {
-      return (internalValue.equals( gint.toString() ));
+      return (this.compareTo(gint) == 0);
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -471,8 +523,12 @@ public class BrobInt {
       for( int i = 0; i < byteVersion.length; i++ ) {
          byteVersionOutput = byteVersionOutput.concat( Byte.toString( byteVersion[i] ) );
       }
+      if(sign == 0)
+        byteVersionOutput = byteVersionOutput + "+";
+      else 
+        byteVersionOutput = byteVersionOutput + "-";
       byteVersionOutput = new String( new StringBuffer( byteVersionOutput ).reverse() );
-      return internalValue;
+      return byteVersionOutput;
    }
 
   /** ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
