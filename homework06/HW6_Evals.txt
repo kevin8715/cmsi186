@@ -1,0 +1,61 @@
+
+Evaluation for homework 06: Brobdingnagian Integer
+   and associated Fibonacci sequence using BrobInt
+
+BrobInt class
+Includes running BrobIntTester test harness
+Includes running Fibonacci requesting several numbers
+   View h6.bat to see test parameters used
+   View testresults.txt to see resulting output
+NOTE: "Brobdingnagian Integer" is abbreviated "BrobInt"
+=======================================================
+
+A total of one point each for the following,
+   except where noted:
+
+BrobInt class file exists           : 1 point
+BrobInt constructor                 : 1 point
+BrobInt add method                  : 1 point
+BrobInt subtract method             : 1 point
+BrobInt validate digits method      : 1 point
+BrobInt reverser method [of 2]      : 2 point
+
+BrobInt Tester class                : 1 point
+BrobInt add [of 9]                  : 8 point
+BrobInt subtract [of 7]             : 6 point
+BrobInt mult [of 7, 1 pt. EC]       : 1 point
+BrobInt div [of 2, 1 pt. EC]        : 0.5 point
+BrobInt remainder [of 2, 1 pt. EC]  : 0.5 point
+
+Fib class file exists               : 1 point
+Fib constructor                     : 1 point
+Fib input error handling            : 1 point
+Fib output correct number [of 4]    : 3 point
+
+Minimum three files in git (3)      : 3 point
+All files compile (3)               : 3 point
+Coding Style                        : 1 point
+Javadocs                            : 1 point
+
+Total possible score: 40 points
+plus [EC] adds three more points if completed
+
+Evaluation
+==========
+   38 out of 40 = 95.0% which is an A
+
+Nice work!
+
+I took into account that the add method has the problem we discussed.
+Since you use that for many of your other methods, I also accounted for
+that situation in all the other output.  I gave you 0.5 for each of the
+division and remaindering, since you wrote code, but it isn't actually
+implemented -- I got the "operation not yet supported" exception, but I
+wanted to give you credit for writing the code.
+
+Pay attention to your coding style -- indenting a bit more and putting
+more space between things improves the readability and doesn't cost you
+anything.  A few spaces and linefeeds in the code really doesn't matter
+to the compiler, but makes it MUCH easier for humans to read.
+
+If you have any questions, let me know.
